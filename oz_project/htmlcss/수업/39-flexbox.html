@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스박스 레이아웃</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            margin:0;
+        }
+        ul{
+            display:flex;
+            padding:0;
+            list-style-type:none;
+            height:200px;
+
+            /* flex-direction: row;
+            flex-wrap:nowrap; */
+            /* flex-flow:row wrap; */
+            
+            /* justify-content: space-around; */
+            align-items : center;
+
+        }
+
+        li{
+            background-color:tomato;
+        }
+
+        li:nth-child(2n){
+            background-color: teal;
+        }
+
+        li:nth-child(2){
+            /* flex-grow:2; */
+            /* flex-shrink:2; */
+
+        }
+        li:nth-child(4){
+            flex-grow:1;
+        }
+        li:nth-child(2n-1){
+            /* flex-basis: 100px;
+            flex-grow:1; */
+            flex:1 1 120px;
+        }
+    </style>
+</head>
+<body>
+    <h2>유노코딩이 집앞 강가에서 목격한 동물들</h2>
+    <ul>
+        <!-- 
+            플렉스 아이템은 플렉스 컨테이너로써의 역할은 하지 않는다!
+        -->
+        <li>물오리</li>
+        <li>물까치</li>
+        <li>고라니</li>
+        <li>누룩뱀</li>
+        <li>너구리</li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header{width:100%;overflow:hidden;}
+        .navbar{display:flex;justify-content: space-between;align-items: center;background-color: darkgray;padding:8px 12px;}
+        a{text-decoration: none;color:white;}
+        .navbar__name{color:whitesmoke;display:none;}
+        .navbar__menu{display:flex;list-style: none;}
+        .navbar__menu li{padding:8px 12px;}
+        @media screen and (max-width:550px){
+            .navbar{display:block;}
+            .navbar__name{width:100%; display:block;}
+            .navbar__menu{width:100%; display:block;}
+        }
+    </style>
+    <title>navigation bar</title>
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+            <div class="navbar__name">
+                <a href="">&#128509;Hamburger&#128509;</a>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__home"><a href="">Home</a></li>
+                <li class="navbar__explore"><a href="">Explore</a></li>
+                <li class="navbar__notif"><a href="">Notifications</a></li>
+                <li class="navbar__msg"><a href="">Messages</a></li>
+                <li class="navbar__more"><a href="">More</a></li> 
+            </ul>
+    </nav> 
+    </header>
+</body>
+</html>

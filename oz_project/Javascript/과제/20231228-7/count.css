@@ -1,0 +1,35 @@
+body {color: #555;margin: 0;}
+.container {width:500px;margin:auto;}
+h2 {font-size: 28px;text-align: center;}
+input{width:100%;height:50px;text-align:center;}
+#timer {display: flex;justify-content: center;margin: 20px 0;}
+.time-unit {margin: 0 10px;text-align: center;}
+.time-unit > span {display: block;min-width: 60px;font-size: 40px;font-weight: 700;padding: 10px;border-radius: 10px;}
+.time-text {transition: opacity 0.9s ease;opacity: 1;}
+
+.time-text.fade-effect {opacity: 0.1;}
+.time-unit .label {margin-top: 5px;
+font-size: 16px;
+}
+
+
+  /* 반응형 디자인 */
+  @media (max-width: 600px) {
+    header {
+      font-size: 20px;
+      text-align: center;
+    }
+    .time-unit > span {
+      min-width: 40px;
+      font-size: 24px;
+    }
+
+    .time-unit {
+      margin: 0 6px;
+    }
+
+    .time-unit .label {
+      font-size: 12px;
+    }
+
+  }

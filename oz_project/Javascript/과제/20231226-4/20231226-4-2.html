@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    <style>
+        h2, h4{width:100%;text-align:center;}
+        .gugu{width:800px;margin:50px auto;}
+        table{width:100%;border:1px solid #555555;}
+        th, td{border:1px solid #555555;text-align:center;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>구구단 표</h2>
+        <h4>2단 ~ 9단을 만들어 보세요!</h4>
+        <div class="gugu">
+            <table>
+                <tr>
+                    <th>2단</th>
+                    <th>3단</th>
+                    <th>4단</th>
+                    <th>5단</th>
+                    <th>6단</th>
+                    <th>7단</th>
+                    <th>8단</th>
+                    <th>9단</th>
+                </tr>
+                <tr>
+                    <td id="gu2"></td>
+                    <td id="gu3"></td>
+                    <td id="gu4"></td>
+                    <td id="gu5"></td>
+                    <td id="gu6"></td>
+                    <td id="gu7"></td>
+                    <td id="gu8"></td>
+                    <td id="gu9"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        let result = new Array();
+
+        for(let i = 2; i <= 9; i++){
+            for(let j = 1; j <= 9; j++){
+                let single_r = i * j;
+                if(j == 1){
+                    result[i] = `${i} * ${j} = ${single_r}<br/>`;
+                } else {
+                    result[i] += `${i} * ${j} = ${single_r}<br/>`;
+                }
+            }
+        }
+        document.querySelector('#gu2').innerHTML = result[2];
+        document.querySelector('#gu3').innerHTML = result[3];
+        document.querySelector('#gu4').innerHTML = result[4];
+        document.querySelector('#gu5').innerHTML = result[5];
+        document.querySelector('#gu6').innerHTML = result[6];
+        document.querySelector('#gu7').innerHTML = result[7];
+        document.querySelector('#gu8').innerHTML = result[8];
+        document.querySelector('#gu9').innerHTML = result[9];
+    </script>
+    
+</body>
+</html>

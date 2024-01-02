@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 리터럴</title>
+</head>
+<body>
+    
+    <script>
+        // 생성자 : 객체를 설계한 함수
+        // 객체 리터럴 : 객체를 이렇게 만들겠다는 선언
+        const cat = {
+            species : "포유류",
+            title : "고양이"
+        }
+
+        console.log(cat.species);
+        console.log(cat["title"]);
+        console.log(typeof cat);
+
+        const gookhee = {
+            ...cat,
+            name : "국희",
+            age : 4,
+            favorite : ["끈", "창틀", "햇살"]
+        }
+
+        console.log(...gookhee.favorite);
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 채팅방 만들기</title>
+    <style>
+        /* 전체적인 세팅 */
+        *{
+            box-sizing: border-box;
+        }
+        html{
+            height:100%;
+        }
+        body{
+            height:100%;
+            margin:0;
+        }
+        .container{
+            max-width:450px;
+            margin:0 auto;
+            /* height:calc(100% - 100px); */
+            height:100%;
+            background-color:pink;
+            border:1px solid darkgray;
+            overflow:hidden;
+        }
+
+
+        .chat-screen{
+            height: calc(100% - 155px);
+        }
+
+        .user{
+            background-color:#ffffff;
+            padding:16px;
+            height:80px;
+        }
+
+        .user__column{
+            float:left;
+        }
+
+        .user__pic{
+            width:50px;
+            height:50px;
+            margin-right:10px;
+            border-radius:10px;
+            background-color:pink;
+        }
+        .user__nick, .user__count{
+            margin:5px;
+        }
+        .user__count{
+            font-size:12px;
+            color:gray;
+        }
+
+        .imo{width:100%;text-align:center;background:#ffffff;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;height:35px;}
+        .imo > a{padding:5px;border:1px solid #ffffff;display:inline-block;}
+        .imo > a:hover{border:1px solid gray;}
+
+        form.chat-form{
+            height:120px;
+            background:#ffffff;
+
+        }
+        .chat-form__field{
+            height:120px;
+        }
+        .chat-form__msg{
+            float:left;
+            width: calc(100% - 120px);
+            height:120px;
+            border:none;
+            resize:none;
+            font-size:24px;
+            padding:10px;
+        }
+        .chat-form__bt{
+            float:right;
+            width:120px;
+            height:120px;
+            border-radius:10px;
+            background-color:pink;
+            font-size:18px;
+            border:0;
+        }
+
+        .chat-form__msg:focus{
+            outline:none;
+        }
+
+        .chat-form__bt:active{
+            background:blue;
+        }
+
+        .chat-screen__texts{padding:0;list-style-type:none;overflow-y:scroll;height:100%-155px;}
+        .chat-screen__texts > li{clear:both}
+
+        .chat-screen__texts > .text{background-color: whitesmoke;width:250px;height:50px;margin:0 0 10px 0;padding:10px;border-radius:10px;line-height:30px;position:relative;left:20px;}
+        .chat-screen__texts > .text::after{content:"";border-right:16px solid transparent;position:absolute;top:10px;left:-10px;}
+        .chat-screen__texts > .text:hover{background-color: lightgreen;transition:background-color 100ms 2000ms ease-in}
+        .chat-screen__texts > .text:hover::after{border-right: 16px solid lightgreen;transition:background-color 100ms 2000ms ease-in}
+
+        .chat-screen__texts > .text_re{background-color: whitesmoke;width:250px;height:50px;margin:0 0 10px 0;padding:10px;border-radius:10px;line-height:30px;position:relative;right:20px;}
+        .chat-screen__texts > .text_re::after{content:"";border-left:16px solid transparent;position:absolute;top:10px;right:-10px;}
+        .chat-screen__texts > .text_re:hover{background-color: lightgreen;transition:background-color 100ms 2000ms ease-in}
+        .chat-screen__texts > .text_re:hover::after{border-right: 16px solid lightgreen;transition:background-color 100ms 2000ms ease-in}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="chat-screen">
+            <section class="chat-screen__bar">
+                <div class="user">
+                    <div class="user__column">
+                        <div class="user__pic"></div>
+                    </div>
+                    <div class="user__column">
+                        <p class="user__nick">친구</p>
+                        <p class="user__count">2</p>
+                    </div>
+                </div>
+            </section>
+            <ul class="chat-screen__texts">
+                <li class="text">ㅎㅇ</li>
+                <li class="text_re">ㅎㅇ</li>
+                <li class="text">ㅁㅎ</li>
+                <li class="text_re">ㅂ ㅁㄴㅈ</li>
+                <li class="text">ㅈ?</li>
+                <li class="text">ㄱㄴㅈ</li>
+                <li class="text">ㄱㄷ</li>
+                <li class="text_re">ㅇㅇ</li>
+                <li class="text">ㅋㅁㅆ</li>
+                <li class="text">ㅂㅂ</li>
+                <li class="text_re">ㅇㅋ</li>
+            </ul>
+        </main>
+        <div class="imo">
+            <a href="#">&#128507;</a>
+            <a href="#">&#128508;</a>
+            <a href="#">&#128509;</a>
+            <a href="#">&#128510;</a>
+            <a href="#">&#128511;</a>
+            <a href="#">&#128512;</a>
+            <a href="#">&#128513;</a>
+            <a href="#">&#128514;</a>
+            <a href="#">&#128515;</a>
+            <a href="#">&#128516;</a>
+            <a href="#">&#128517;</a>
+        </div>
+        <form class="chat-form">
+            <section class="chat-form__field">
+                <textarea class="chat-form__msg"></textarea>
+                <input type="submit" value="전송" class="chat-form__bt">
+            </section>
+        </form>
+
+    </div>
+
+    
+</body>
+</html>

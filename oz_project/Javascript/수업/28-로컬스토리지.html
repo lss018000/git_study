@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬 저장소</title>
+</head>
+<body>
+
+    <p id="item">이봉주</p>
+    <button id="set">SET</button>
+    <button id="get">GET</button>
+    <button id="remove">REMOVE</button>
+    <button id="clear">CLEAR</button>
+    
+    <script>
+        const item = document.getElementById("item");
+        const set = document.getElementById("set");
+        const get = document.getElementById("get");
+        const remove = document.getElementById("remove");
+        const clear = document.getElementById("clear");
+
+        set.addEventListener("click", function(){
+            localStorage.setItem("마라토너", item.textContent);
+        })
+        get.addEventListener("click", function(){
+            alert(localStorage.getItem("마라토너"));
+        })
+        remove.addEventListener("click", function(){
+            localStorage.removeItem("마라토너");
+        })
+        clear.addEventListener("click", function(){
+            localStorage.clear();
+        })
+
+
+        // 문자열이 아니면 저장이 안됨....
+        // localStorage.setItem("커피",{
+        //     name : "에티오피아",
+        //     taste: "산미"
+        // })
+        localStorage.setItem("커피", JSON.stringify({
+            name : "에티오피아",
+            taste: "산미"
+        }))
+    </script>
+</body>
+</html>

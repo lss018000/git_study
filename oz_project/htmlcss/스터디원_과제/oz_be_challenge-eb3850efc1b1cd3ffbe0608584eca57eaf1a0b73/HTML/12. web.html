@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>web</title>
+    <style>
+        body{padding:0;margin:0;}
+        .web{width:100vw;height:100vh;background:black;padding:0;}
+        .web > div{display:none;}
+        @media screen and (max-width: 700px){
+            .web{background:black;}
+            .web > .web_700{display:block;}
+        }
+        @media screen and (max-width: 600px){
+            .web{background:red;}
+            .web > .web_600{display:block;}
+            .web > .web_700{display:none;}
+        }
+        @media screen and (max-width: 500px){
+            .web{background:blue;}
+            .web > .web_500{display:block;}
+            .web > .web_600{display:none;}
+        }
+        @media screen and (max-width: 400px){
+            .web{background:pink;}
+            .web > .web_400{display:block;}
+            .web > .web_500{display:none;}
+        }
+    </style>
+</head>
+<body>
+    <div class="web">
+        <div class="web_700">700</div>
+        <div class="web_600">600</div>
+        <div class="web_500">500</div>
+        <div class="web_400">400</div>
+    </div>
+</body>
+</html>

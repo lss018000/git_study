@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 메소드</title>
+</head>
+<body>
+
+    <p id="now"></p>
+    <button id="stop">stop</button>
+
+    <script>
+        const button = document.getElementById("stop");
+
+        let timetId;
+        
+        timetId = setInterval(function(){
+            const p = document.getElementById("now");
+
+            const now = new Date();
+            // const then = new Date(1992, 11, 12, 12, 30, 45);
+
+            // console.log(now);
+            // console.log(then);
+
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            let day = now.getDate();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+
+            p.textContent = `${year}/${month}/${day} ${hour}:${min}:${sec}`;
+        }, 1000)
+
+        button.addEventListener("click", function(){
+            clearInterval(timetId);
+        })
+    </script>
+    
+</body>
+</html>

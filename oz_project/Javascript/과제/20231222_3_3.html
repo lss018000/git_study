@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>4의 배수 5개씩 출력하기</h2>
+    <div class="content"></div>
+    <script>
+        let i = 25;
+        let j = 1;
+        while((i * 4 <= 500) && (i * 4 >= 100)){
+            document.write(i * 4);
+            document.write('&nbsp&nbsp&nbsp');
+            if(j % 5 == 0){
+                document.write("<br/>");
+            }
+            j++;
+            i++;
+        }
+    </script>
+    
+</body>
+</html>

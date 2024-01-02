@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 메소드 속성</title>
+</head>
+<body>
+    <h1 id=song-title" class="heading text">
+        <span>다시 만날까 봐</span>
+    </h1>
+    <p class="lyrics>
+        인스타로 몰래 보는 너의 하루를 누가 봐도 헤어진 티를 내
+    </p>
+    <p class="lyrics">
+        팔로우 다 끊고서 좋아요는 왜 눌렀니
+    </p>
+    <script>
+        console.log(document.querySelectorAll(".lyrics"));
+        console.log(document.getElementsByClassName("lyrics"));
+        const title = document.getElementById("song-title");
+        console.log(title);
+
+        console.log(title.textContent)  // 공백 포함
+        console.log(title.innerText)
+
+        console.log(title.className) // 클래스 네임
+        console.log(title.style) // 정의된 스타일 나열
+    </script>
+
+</body>
+</html>

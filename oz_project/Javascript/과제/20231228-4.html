@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적표</title>
+    <style>
+        table#table{border:1px solid #555555;width:300px;text-align:center;margin-bottom:50px;}
+        td{border:1px solid #555555;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>떡잎 유치원 멀리뛰기 결과</h2>
+        <table id="table">
+            
+        </table>
+        <h3>75점이 넘는 사람:</h3>
+        <p id="basic_result"></p>
+        <p id="advan_result"></p>
+    </div>
+
+    <script>
+        const table_val = [
+            ["짱구", 45],
+            ["맹구", 75],
+            ["철수", 95],
+            ["훈이", 50],
+            ["유리", 68],
+            ["수지", 86]
+        ];
+        const table = document.getElementById("table");
+        const basic_result = document.getElementById("basic_result");
+        const advan_result = document.getElementById("advan_result");
+        let basic_array = [];
+        let advan_array = [];
+        let advan_html = [];
+
+        let inner_table = "<tr><th>이름</th><th>점수</th></tr>";
+        for(let i = 0; i <  table_val.length; i++){
+            inner_table = inner_table + `<tr><td>${table_val[i][0]}</td><td>${table_val[i][1]}</td></tr>`;
+            if(table_val[i][1] >= 75){
+                basic_array.push(`${table_val[i][0]}(${table_val[i][1]}점)`);
+                advan_array.push([table_val[i][0],table_val[i][1]]);
+            }
+        }
+        advan_array.sort((a,b) => b[1] - a[1]);
+
+        for(let j = 0; j < advan_array.length; j++){
+            advan_html.push(`${advan_array[j][0]}(${advan_array[j][1]}점)`);
+        }
+        console.log(advan_array);
+        table.innerHTML = inner_table;
+        basic_result.innerHTML = '기본결과 : ' + basic_array;
+        advan_result.innerHTML = '심화결과 : ' + advan_html;
+    </script>
+    
+</body>
+</html>

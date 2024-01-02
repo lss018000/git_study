@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>설문조사 양식</title>
+    </head>
+</html>
+    <header>
+        <h1>설문조사 양식</h1>
+            <h5>모든 항목에 빠짐없이 체크해 주세요.</h5>
+    </header>
+    <hr/>
+    <main>
+        <form>
+            <fieldset>
+                <caption>개인정보</caption>
+                    <label for="name">이름</label>
+                    <input type="email" id="email" name="email" value="메일 주소를 쓰세요">
+            </fieldset>
+            <fieldset>
+                <caption>설문</caption>
+                <p>연령대를 선택해 주세요.</p>
+                <input type="radio" id="teen" name="age"><label for="teen">10대</label>
+                <input type="radio" id="twenty" name="age"><label for="twenty">20대</label>
+                <input type="radio" id="thirty" name="age"><label for="thirty">30대</label>
+                <input type="radio" id="fourty" name="age"><label for="fourty">40대</label>
+                <input type="radio" id="fifty" name="age"><label for="fifty">50대</label>
+                <input type="radio" id="etc" name="age"><label for="etc">그외</label>
+                <br>
+                <p>학원 선택 시 기준을 선택해 주세요.</p>
+                <input type="checkbox" id="criteria1" name="criteria1"><label for="criteria1">위치</label>
+                <input type="checkbox" id="criteria1" name="criteria2"><label for="criteria2">학원비</label>
+                <input type="checkbox" id="criteria1" name="criteria3"><label for="criteria3">강사</label>
+                <input type="checkbox" id="criteria1" name="criteria4"><label for="criteria4">시설</label>
+                <input type="checkbox" id="criteria1" name="criteria5"><label for="criteria5">강의방식</label>
+            </fieldset>
+            <fieldset>
+                <caption>남기고 싶은 의견</caption>
+                <p>여러분의 의견은 큰 도움이 됩니다. 자유롭게 남겨주세요.</p>
+                <textarea rows="10" cols="50"></textarea>
+            </fieldset>
+            <input type="submit" value="전송">
+        </form>
+    </main>
+    <hr>
+    <footer>
+        <p>설문에 참여해주셔서 감사합니다.</p>
+    </footer>
+    </body>
+    </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 메소드 추가 학습</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        const container = document.getElementById("container");
+        const crops = ["토마토", "고추", "가지", "고구마", "들깨"];
+
+        // crops.forEach(function(item){
+        //     console.log(item);
+        // })
+
+        let result = crops.map(function(item){
+            // return item + " 맛있다";
+            const h2 = document.createElement("h2");
+            h2.textContent = `맛 좋은 ${item}`
+            container.append(h2);
+            return h2;
+        })
+        console.log(result);
+
+        // filter는 모든 아이템에서 true를 반환한 아이템만 모음
+        let result2 = crops.filter(function(item){
+            // return item.length === 3;
+            return item.indexOf("고") !== -1;
+        })
+        console.log(result2);
+    </script>
+</body>
+</html>

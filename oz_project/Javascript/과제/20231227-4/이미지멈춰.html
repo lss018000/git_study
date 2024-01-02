@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 멈춰</title>
+    <style>
+        #container{background-image:url(https://picsum.photos/600/600);width:600px;height:600px;margin:auto;}
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="stop">멈춰</button>
+
+    <script>
+        const container = document.querySelector("#container");
+        const stop = document.querySelector("#stop");
+        let url = "";
+        let i = 400;
+
+        let imgChange = setInterval(function(){
+            url = "https://picsum.photos/600/" + i + "/";
+            i += 100;
+            container.style.backgroundImage = `url(${url})`;
+            if(i == 600){
+                i = 400;
+            }
+        }, 1000)
+
+        stop.addEventListener("click", function(){
+            clearInterval(imgChange);
+        })
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="oz_common.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>OZ 코딩 홈페이지</title>
+    <style>
+        body{padding:0;margin:0;}
+        /* .container{max-width:1108px;margin:0 auto;width:100%;} */
+        header{background:#000000;color:#ffffff;}
+        .cont_main{margin-top:115px;}
+        *{text-decoration:none;}
+        @keyframes blink{
+            from {
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        .slogun{text-align:center;font-size:35px;font-weight:bold;padding:50px 0;}
+        .slogun > .icon{animation: blink;animation-duration: 350ms;animation-iteration-count: infinite;animation-duration: alternate;}
+
+        .coding_report{width:100%;max-width:1108px;margin:0 auto;overflow:hidden;}
+        .coding_report > .coding_single{width:29%;margin:2%;float:left;text-align:center;}
+        .coding_report > .coding_single > a{width:80%;height:350px;display:block;opacity:0.4;color:#000000;font-size:35px;line-height:350px;border-radius:15px;margin:0 auto;}
+        .coding_report > .coding_single > a:hover{opacity:1;transform:scale(1.1)}
+        .coding_report > .coding_single:first-child > a{background:red;}
+        .coding_report > .coding_single:nth-child(2) > a{background:yellow;}
+        .coding_report > .coding_single:last-child > a{background:blue;}
+        footer > .wrap{max-width:1108px;margin:0 auto;width:100%;}
+
+        @media screen and (max-width:768px){
+            #oz_header .header_services{display:none;}
+            #oz_header .header_services.opened{display:block;}
+            .coding_report > .coding_single{width:100%;}
+            #oz_footer .wrap{text-align:center;}
+        }
+    </style>
+        <script>
+            $(document).ready(function () {
+                $(".nav-toggle-bar").click(function () {
+                    if ($(".header_services").hasClass("opened")) {
+                        $(".header_services").removeClass("opened");
+                    } else {
+                        $(".header_services").addClass("opened");
+                    }
+                });
+            });
+        </script>
+</head>
+<body>
+        <header id="oz_header">
+            <!--고정 헤더-->
+            <div class="header_wrap">
+                <div class="header_left">
+                    <div class="header_logo"><a href="https://ozcodingschool.com" target="_blank"><img src="img/ozcoding_logo.png" alt="ozcoding_logo"></a></div>
+                    <div class="line"></div>
+                    <div class="header_services flex" style="align-items: center; width:100%;">
+                        <div class="category_promotion">
+                            <ul class="promotion_list">
+                                <li class="promotion_item"><a class="" href="#;" target="_blank"><b>HTML/CSS</b></a><span class="dot1"></span></li>
+                                <li class="promotion_item"><a class="" href="#;" target="_blank"><b>Javascript</b></a><span class="dot2"></span></li>
+                                <li class="promotion_item"><a class="" href="#;" target="_blank"><b>Python</b></a><span class="dot3"></span></li>
+                                <li class="promotion_item"><a class="" href="#;" target="_blank"><b>AWS</b></a><span class="dot4"></span></li>
+                                <li class="promotion_item"><a class="" href="#;" target="_blank"><b>Django</b></a><span class="dot5"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 모바일 메뉴 토글 버튼 -->
+                    <div class="nav-toggle nav_column_center">
+                        <div class="nav-toggle-bar"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+
+        
+        <div class="cont_main">
+            <div class="main_content">
+                <div class="slogun"><span class="icon">👀</span>오늘도 화이팅<span class="icon">👀</span></div>
+                <div class="coding_report">
+                    <div class="coding_single"><a href="https://ozcodingschool.com/" target="_blank">빠른학습</a></div>
+                    <div class="coding_single"><a href="https://ozcodingschool.com/" target="_blank">빠른학습</a></div>
+                    <div class="coding_single"><a href="https://ozcodingschool.com/" target="_blank">빠른학습</a></div>
+                </div>
+            </div>
+            <div class="oz_desc oz_desc_m">
+                <div class="oz_desc_tit">
+                  마법처럼 커리어를 바꿔보세요
+                </div>
+                <div class="list_wrap" style="opacity: 1; transform: translateY(0px);">
+                  <div class="list_wrap_title">
+                    오즈코딩스쿨은 온·오프라인에서<br> 
+                    몰입할 수 밖에 없는 환경을 만듭니다
+                  </div>
+                </div>
+                <div class="oz_desc_btn" style="opacity: 1;">
+                  <a class="scroll_moneytrend" href="javascript:void(0);">
+                    <span>100% 환급반 강의 보기</span>
+                  </a>
+                </div>
+              </div>
+        </div>
+        
+        
+        
+        <footer id="oz_footer">
+            <div class="wrap">
+                <div class="flex">
+                    <div class="footer_item">
+                        <div class="tt">
+                            사업자 정보
+                        </div>
+                        <div class="ttt">
+                            상호명 : 넥스트러너스<br>
+                            사업자등록번호 : 540-86-00384<br>
+                            통신판매업 신고번호 : 2020-경기김포-3725호<br>
+                            대표 : 이한별<br>
+                            주소 : 경기도 김포시 사우중로 87 201호
+                        </div>
+                    </div>
+                    <div class="footer_item">
+                        <div class="tt">
+                            고객센터
+                        </div>
+                        <div class="ttt">
+                            <a href="https://ozcodingschool.channel.io/" target="_blank" style="font-size: 1rem; line-height: 1.8; color: #757575;">고객센터 상담톡 바로가기</a><br>
+                            이메일 : kdigital@nextrunners.co.kr<br>
+                            전화 : 070-4099-8219<br>
+                            상담시간 : 평일 11시~17시 (공휴일 휴무)<br>
+                            <a onclick="lhsCommon.modal.open('footer_terms_privacy_modal',this);" style="font-size: 1rem; line-height: 1.8; color: #757575; cursor: pointer;">개인정보처리방침</a><br>
+                            <a onclick="lhsCommon.modal.open('footer_terms_and_conditions_modal',this);" style="font-size: 1rem; line-height: 1.8; color: #757575; cursor: pointer;">이용약관</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">Copyright ⓒ 2023 ozcodingschool.</div>
+            </div>
+        </footer>
+</body>
+</html>

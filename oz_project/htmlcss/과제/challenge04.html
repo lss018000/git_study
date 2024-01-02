@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <header>
+        <h1>회원가입</h1>
+        <p>필수 사항을 빠짐 없이 입력해주세요.</p>
+    </header>
+    <main>
+        <form action="" method="POST">
+            <fieldset>
+                <legend>필수</legend>
+                <label for="email">이메일 : </label>
+                <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요.">
+                <hr />
+                
+                <label for="name">이름 : </label>
+                <input type="text" name="name" id="name" placeholder="이름을 입력해주세요.">
+                <hr />
+
+                <label for="sex">성별 : </label>
+                <input type="radio" name="sex" id="sex1"><label for="sex1">남</label>
+                <input type="radio" name="sex" id="sex2"><label for="sex2">여</label>
+                <input type="radio" name="sex" id="sex0"><label for="sex0">비밀</label>
+                <hr />
+                
+                <label for="pwd">비밀번호 : </label>
+                <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요.">
+                <br/><br/>
+                <label for="pwd">비밀번호 확인 : </label>
+                <input type="password" name="pwd_chk" id="pwd_chk" placeholder="비밀번호를 다시 입력해주세요.">
+                <hr />
+                
+                <label for="phone1">휴대폰 : </label>
+                <select name="phone1">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="018">018</option>
+                </select>
+                - <input type="text" name="phone2" id="phone2"> - <input type="text" name="phone3" id="phone3">
+                <hr />
+                
+                <label for="region">지역 : </label>
+                <select name="select">
+                    <option value="reg1">서울</option>
+                    <option value="reg2">경기</option>
+                    <option value="reg3">강원</option>
+                    <option value="reg4">충청</option>
+                    <option value="reg5">경상</option>
+                    <option value="reg6">전라</option>
+                    <option value="others">그외</option>
+                </select>
+            </fieldset>
+
+            <input type="submit" value="가입하기">
+            <input type="reset" value="취소">
+        </form>
+    </main>
+    <footer><center>&copy; OZ</center></footer>
+</body>
+</html>
