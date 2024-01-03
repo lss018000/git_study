@@ -13,17 +13,28 @@
               <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
               <select class="form-select" id="inlineFormSelectPref">
                 <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                    <option>카테고리</option>
-                    <option>a</option>
+                    <option selected>카테고리</option>
+                    <option value="상의">상의</option>
+                    <option value="하의">하의</option>
+                    <option value="신발">신발</option>
+                    <option value="패션잡화">패션잡화</option>
+              </select>
+              <select class="form-select sex" id="sexselect">
+                <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+                    <option selected>성별</option>
+                    <option value="남자">남자</option>
+                    <option value="여자">여자</option>
               </select>
             </div>
             <div class="col-3">
                 <!-- input 입력창 코드를 넣어주세요 -->
-                <input type="text" value="">
               </div>
               <div class="col-auto">
                 <!-- 조회버튼 코드를 넣어주세요 -->
-                <input type="button" value="조회">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요." aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">조회</button>
+                  </div>
               </div>
           </form>
           <div class="container mt-3">
@@ -33,8 +44,9 @@
                 <tr>
                     <th>카테고리</th>
                     <th>브랜드</th>
+                    <th>성별</th>
                     <th>상품명</th>
-                    <th>가격a</th>
+                    <th>가격</th>
                 </tr>
             </thead>
             <tbody id="data-table">
@@ -43,22 +55,27 @@
         </table>
     </div>
     <!-- 페이지 네이션 코드를 넣어주세요 -->
-    <div class="paging">
-        <a href="pre">Previous</a>
-        <a href="/?page=1">1</a>
-        <a href="/?page=2">2</a>
-        <a href="/?page=3">3</a>
-        <a href="/?page=4">4</a>
-        <a href="next">Next</a>
-    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
    <script>
       // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
       // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
       const data = [
-          { category: "상의", brand: 'Supreme', product: '슈프림 박스로고 후드티', price: '390,000' },
-          { category: "하의", brand: 'DIESEL', product: '디젤 트랙 팬츠', price: '188,000' },
-          { category: "신발", brand: 'Nike', product: '에어포스 1', price: '137,000' },
-          { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+          { category: "상의", brand: 'Supreme', sex: '남자', product: '슈프림 박스로고 후드티', price: '390,000' },
+          { category: "하의", brand: 'DIESEL', sex: '여자', product: '디젤 트랙 팬츠', price: '188,000' },
+          { category: "신발", brand: 'Nike', sex: '남자', product: '에어포스 1', price: '137,000' },
+          { category: "패션잡화", brand: 'Music&Goods', sex: '여자', product: '빵빵이 키링', price: '29,000' },
           // ...
       ];
       
@@ -68,8 +85,9 @@
           const row = dataTable.insertRow();
           row.insertCell(0).innerHTML = item.category;
           row.insertCell(1).innerHTML = item.brand;
-          row.insertCell(2).innerHTML = item.product;
-          row.insertCell(3).innerHTML = item.price;
+          row.insertCell(2).innerHTML = item.sex;
+          row.insertCell(3).innerHTML = item.product;
+          row.insertCell(4).innerHTML = item.price;
       });
 
     </script>
