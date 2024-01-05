@@ -6,10 +6,14 @@
 .left > select{width:20%;float:left;}
 .right{float:right;width:50%;}
 
+.author_link{width:100%;overflow:hidden;}
+.git_link{text-decoration:none;text-align:right;width:100%;font-size:20px;display:block;color:#555555;}
+
 table th{text-align:center;}
 table td:nth-child(1){text-align:center;width:5%;}
 table td:nth-child(2){text-align:center;width:10%;}
-table td:nth-child(3){text-align:center;width:20%;}
+table td:nth-child(3){text-align:center;width:10%;}
 table td:nth-child(4){text-align:center;width:5%;}
 table td:nth-child(5){padding-left:10px;}
 table td:nth-child(6){text-align:center;width:10%;}
+table td:nth-child(7){text-align:center;width:10%;}
