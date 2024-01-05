@@ -1,6 +1,8 @@
 .paging{width:100%;text-align:center;}
 .paging > a{text-decoration:none;border:1px solid #555555;padding:5px;margin:0;}
 
+.date{float:right;margin-top:-50px;text-align:right;}
+
 .table_top{width:100%;}
 .left{float:left;width:50%;}
 .left > select{width:20%;float:left;}
@@ -14,6 +16,6 @@ table td:nth-child(1){text-align:center;width:5%;}
 table td:nth-child(2){text-align:center;width:10%;}
 table td:nth-child(3){text-align:center;width:10%;}
 table td:nth-child(4){text-align:center;width:5%;}
-table td:nth-child(5){padding-left:10px;}
-table td:nth-child(6){text-align:center;width:10%;}
+table td:nth-child(5){padding-left:10px;padding-right:10px;}
+table td:nth-child(6){text-align:right;padding-left:10px;padding-right:10px;width:10%;}
 table td:nth-child(7){text-align:center;width:10%;}
