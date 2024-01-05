@@ -34,8 +34,8 @@
             <div class="right">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요." aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">조회</button>
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">선택상품 삭제</button>
+                    <button class="btn btn-outline-secondary" type="button" id="search">조회</button>
+                    <button class="btn btn-outline-secondary" type="button" id="sel_del">선택상품 삭제</button>
                   </div>
               </div>
           </form>
@@ -109,6 +109,21 @@
       const now_date = document.getElementById('now_date');
 
       now_date.textContent = year + '/' + month + '/' + date;
+
+      const search_btn = document.getElementById('search');
+      const del_btn = document.getElementById('sel_del');
+
+      search_btn.addEventListener('click', function(){
+        alert('상품 조회중입니다.');
+      })
+
+      del_btn.addEventListener('click', function(){
+        if(confirm('진짜 삭제할꺼지?')){
+          alert("삭제되었습니다.");
+        } else {
+          alert("삭제가 취소되었습니다.");
+        }
+      })
 
 
     </script>
