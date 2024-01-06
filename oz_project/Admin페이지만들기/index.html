@@ -1,105 +1,233 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <title>Admin Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <link href="style.css" rel="stylesheet">
-</head>
-<body>
+  </head>
+  <body>
     <div class="container mt-3">
-        <h3 class="mt-5 mb-3">신규 등록 상품</h3>
-        <div class="date">
-          <span>오늘 날짜 : </span><span id="now_date"></span><br/>
-          <span>마지막 업데이트 : </span><span id="update_date"></span>
+      <h3 class="mt-5 mb-3">신규 등록 상품</h3>
+      <div class="date">
+        <span>오늘 날짜 : </span><span id="now_date"></span><br/>
+        <span>마지막 업데이트 : </span><span id="update_date"></span><a href="">상품 정보 업데이트</a>
+      </div>
+      <form class="table_top" id="search_filter" action="/oz_project/Admin페이지만들기/" method="GET">      
+        <div class="left">
+          <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+          <select class="form-select" id="catselect" name="cat">
+            <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+            <option value="">카테고리</option>
+            <option value="64">상의</option>
+            <option value="65">하의</option>
+            <option value="34">신발</option>
+            <option value="7">패션잡화</option>
+          </select>
+          <select class="form-select sex" id="sexselect" name="gen">
+            <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+            <option selected value="">성별</option>
+            <option value="men">남자</option>
+            <option value="women">여자</option>
+          </select>
         </div>
-        <form class="table_top">      
-            <div class="left">
-              <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-              <select class="form-select" id="inlineFormSelectPref">
-                <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                    <option selected>카테고리</option>
-                    <option value="상의">상의</option>
-                    <option value="하의">하의</option>
-                    <option value="신발">신발</option>
-                    <option value="패션잡화">패션잡화</option>
-              </select>
-              <select class="form-select sex" id="sexselect">
-                <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                    <option selected>성별</option>
-                    <option value="남자">남자</option>
-                    <option value="여자">여자</option>
-              </select>
-            </div>
-            <div class="right">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요." aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="search">조회</button>
-                    <button class="btn btn-outline-secondary" type="button" id="sel_del">선택상품 삭제</button>
-                  </div>
-              </div>
-          </form>
-          <div class="container mt-3">
-            
+        <div class="right">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="q" id="search_text" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요." aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="search">조회</button>
+            <button class="btn btn-outline-secondary" type="button" id="sel_del">선택상품 삭제</button>
+          </div>
+        </div>
+      </form>
+      <div class="container mt-3">      
         <table class="table table-sm">
-            <thead>
-                <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
-                <tr>
-                    <th>선택</th>
-                    <th>카테고리</th>
-                    <th>성별</th>
-                    <th>브랜드</th>
-                    <th>상품명</th>
-                    <th>가격</th>
-                    <th>업데이트일</th>
-                </tr>
-            </thead>
-            <tbody id="data-table">
-                <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
-            </tbody>
+          <thead>
+            <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+            <tr>
+              <th>선택</th>
+              <th>카테고리</th>
+              <th>성별</th>
+              <th>브랜드</th>
+              <th>상품명</th>
+              <th>가격</th>
+              <!-- <th>업데이트일</th> -->
+            </tr>
+          </thead>
+          <tbody id="data-table">
+            <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+          </tbody>
         </table>
-    </div>
-    <!-- 페이지 네이션 코드를 넣어주세요 -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link">Previous</a>
-          </li>
+      </div>
+      <!-- 페이지 네이션 코드를 넣어주세요 -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" id="pagination">
+          <li class="page-item disabled"><a class="page-link">Previous</a></li>
           <li class="page-item"><a class="page-link" href="#">1</a></li>
           <li class="page-item"><a class="page-link" href="#">2</a></li>
           <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
       </nav>
       <div class="author_link">
         <a href="https://github.com/lss018000/git_study/tree/main/oz_project/Admin%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank" class="git_link"><i class="bi bi-github"></i> lss018000 Github</a>
       </div>
-   <script>
-      // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
-      // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
-      const data = [
-          { category: "상의", brand: 'Supreme', sex: '남자', product: '슈프림 박스로고 후드티', price: '390,000', update:'2023-12-12' },
-          { category: "하의", brand: 'DIESEL', sex: '여자', product: '디젤 트랙 팬츠', price: '188,000', update:'2023-12-15' },
-          { category: "신발", brand: 'Nike', sex: '남자', product: '에어포스 1', price: '137,000', update:'2023-12-16' },
-          { category: "패션잡화", brand: 'Music&Goods', sex: '여자', product: '빵빵이 키링', price: '29,000', update:'2023-12-17' },
-          // ...
-      ];
-      
-      const dataTable = document.getElementById('data-table');
-      
-      data.forEach((item) => {
-          const row = dataTable.insertRow();
-          row.insertCell(0).innerHTML = '<input type="checkbox">'
-          row.insertCell(1).innerHTML = item.category;
-          row.insertCell(2).innerHTML = item.sex;
-          row.insertCell(3).innerHTML = item.brand;
-          row.insertCell(4).innerHTML = item.product;
-          row.insertCell(5).innerHTML = item.price;
-          row.insertCell(6).innerHTML = item.update;
-      });
+      <script>
+        const urlStr = window.location.href;
+        const url = new URL(urlStr);
+        const urlParams = url.searchParams;
+        const p_no = urlParams.get('p_no');
+        const cat = urlParams.get('cat');
+        if(cat == '64'){
+          cat_text = '상의';
+        } else if(cat == '65'){
+          cat_text = '하의';
+        } else if(cat == '34'){
+          cat_text = '신발';
+        } else if(cat == '7'){
+          cat_text = '패션잡화';
+        } else {
+          cat_text = '';
+        }
+        const gen = urlParams.get('gen');
+        if(gen == 'men'){
+          gen_text = '남자';
+        }else if(gen == 'women'){
+          gen_text = '여자';
+        }else{
+          gen_text = '';
+        }
+        const search_text = urlParams.get('q');
 
+        const catselect = document.getElementById('catselect'); 
+        const catsel_len = catselect.options.length; 
+        for (let i=0; i<catsel_len; i++){  
+          if(catselect.options[i].value == cat){
+            catselect.options[i].selected = true;
+          }
+        }  
+        const sexselect = document.getElementById('sexselect'); 
+        const sexsel_len = sexselect.options.length; 
+        for (let i=0; i<sexsel_len; i++){  
+          if(sexselect.options[i].value == gen){
+            sexselect.options[i].selected = true;
+          }
+        }  
+        const q = document.getElementById('search_text'); 
+        q.value = search_text;
+        
+      // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
+      $(document).ready(function() {
+
+        $("#catselect").on("change", function(){
+          //selected value
+          $(this).val();
+          const cat_val = $("option:selected", this).attr("value");
+          const URLSearch = new URLSearchParams(location.search);
+          URLSearch.set('cat', String(cat_val));
+          const newParam = URLSearch.toString();
+        
+          window.open(location.pathname + '?' + newParam, '_self');
+        });
+        $("#sexselect").on("change", function(){
+          //selected value
+          $(this).val();
+          const sex_val = $("option:selected", this).attr("value");
+          const URLSearch = new URLSearchParams(location.search);
+          URLSearch.set('gen', String(sex_val));
+          const newParam = URLSearch.toString();
+        
+          window.open(location.pathname + '?' + newParam, '_self');
+        });
+
+
+        const Url = './json_data/kream_data_total.json';
+          $.ajax({
+            url: Url,
+            type: "GET",
+            async: false,
+            data: "sex:man",
+            //contentType: 'application/json; charset=utf-8',
+            dataType:"json",
+            success: function(result) {
+              //console.log(result)
+              const dataTable = document.getElementById('data-table');
+              console.log(result.length);
+              result.forEach((item) => {
+                const compare_title = item.product;
+                const row = dataTable.insertRow();
+                if(cat != null){
+                  if((item.category == cat_text) && ((item.sex == gen_text) || (item.sex == '남자/여자'))){
+                    if(search_text){
+                      if(compare_title.indexOf(search_text) != -1){
+                        row.insertCell(0).innerHTML = '<input type="checkbox">'
+                        row.insertCell(1).innerHTML = item.category;
+                        row.insertCell(2).innerHTML = item.sex;
+                        row.insertCell(3).innerHTML = item.brand;
+                        row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+                        row.insertCell(5).innerHTML = item.price;
+                        //row.insertCell(6).innerHTML = item.update;
+                      }
+                    } else {
+                      row.insertCell(0).innerHTML = '<input type="checkbox">'
+                      row.insertCell(1).innerHTML = item.category;
+                      row.insertCell(2).innerHTML = item.sex;
+                      row.insertCell(3).innerHTML = item.brand;
+                      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+                      row.insertCell(5).innerHTML = item.price;
+                      //row.insertCell(6).innerHTML = item.update;
+                    }    
+                  } else {
+                    if(search_text){
+                      if(compare_title.indexOf(search_text) != -1){
+                        row.insertCell(0).innerHTML = '<input type="checkbox">'
+                        row.insertCell(1).innerHTML = item.category;
+                        row.insertCell(2).innerHTML = item.sex;
+                        row.insertCell(3).innerHTML = item.brand;
+                        row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+                        row.insertCell(5).innerHTML = item.price;
+                        //row.insertCell(6).innerHTML = item.update;
+                      }
+                    } else {
+                      row.insertCell(0).innerHTML = '<input type="checkbox">'
+                      row.insertCell(1).innerHTML = item.category;
+                      row.insertCell(2).innerHTML = item.sex;
+                      row.insertCell(3).innerHTML = item.brand;
+                      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+                      row.insertCell(5).innerHTML = item.price;
+                      //row.insertCell(6).innerHTML = item.update;
+                    }
+                  }
+                } else {
+                    row.insertCell(0).innerHTML = '<input type="checkbox">'
+                    row.insertCell(1).innerHTML = item.category;
+                    row.insertCell(2).innerHTML = item.sex;
+                    row.insertCell(3).innerHTML = item.brand;
+                    row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+                    row.insertCell(5).innerHTML = item.price;
+                    //row.insertCell(6).innerHTML = item.update;
+                }
+                
+                  
+              });
+            },
+            error:function(error) {
+              console.log(`Error ${error}`)
+            },
+
+          })
+      })
+      // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
+      /**
+      const data = [
+        { category: "상의", brand: 'Supreme', sex: '남자', product: '슈프림 박스로고 후드티<a href="">상품보기</a>', price: '390,000', update:'2023-12-12' },
+        { category: "하의", brand: 'DIESEL', sex: '여자', product: '디젤 트랙 팬츠<a href="">상품보기</a>', price: '188,000', update:'2023-12-15' },
+        { category: "신발", brand: 'Nike', sex: '남자', product: '에어포스 1<a href="">상품보기</a>', price: '137,000', update:'2023-12-16' },
+        { category: "패션잡화", brand: 'Music&Goods', sex: '여자', product: '빵빵이 키링<a href="">상품보기</a>', price: '29,000', update:'2023-12-17' },
+        // ...
+      ];
+      **/
+ 
       let today = new Date();   
       let year = today.getFullYear(); // 년도
       let month = today.getMonth() + 1;  // 월
@@ -114,7 +242,7 @@
       const del_btn = document.getElementById('sel_del');
 
       search_btn.addEventListener('click', function(){
-        alert('상품 조회중입니다.');
+        //alert('상품 조회중입니다.');
       })
 
       del_btn.addEventListener('click', function(){
@@ -124,8 +252,6 @@
           alert("삭제가 취소되었습니다.");
         }
       })
-
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

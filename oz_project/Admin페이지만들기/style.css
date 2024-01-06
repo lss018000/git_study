@@ -15,7 +15,8 @@ table th{text-align:center;}
 table td:nth-child(1){text-align:center;width:5%;}
 table td:nth-child(2){text-align:center;width:10%;}
 table td:nth-child(3){text-align:center;width:10%;}
-table td:nth-child(4){text-align:center;width:5%;}
+table td:nth-child(4){text-align:center;width:15%;}
 table td:nth-child(5){padding-left:10px;padding-right:10px;}
+.product_link{float:right;text-decoration:none;border:1px solid #555555;padding:2px 3px;color:#555555;font-size:12px;}
 table td:nth-child(6){text-align:right;padding-left:10px;padding-right:10px;width:10%;}
 table td:nth-child(7){text-align:center;width:10%;}
