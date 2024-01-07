@@ -12,7 +12,7 @@
       <h3 class="mt-5 mb-3">신규 등록 상품</h3>
       <div class="date">
         <span>오늘 날짜 : </span><span id="now_date"></span><br/>
-        <span>마지막 업데이트 : </span><span id="update_date"></span><a href="">상품 정보 업데이트</a>
+        <span>마지막 업데이트 : </span><span id="update_date"></span><!--a href="">상품 정보 업데이트</a-->
       </div>
       <form class="table_top" id="search_filter" action="/oz_project/Admin페이지만들기/" method="GET">      
         <div class="left">
@@ -37,6 +37,7 @@
             <input type="text" class="form-control" name="q" id="search_text" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요." aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="submit" id="search">조회</button>
             <button class="btn btn-outline-secondary" type="button" id="sel_del">선택상품 삭제</button>
+            <a href="/oz_project/Admin페이지만들기/" class="btn btn-outline-secondary" >검색 조건 초기화</a>
           </div>
         </div>
       </form>
@@ -59,14 +60,11 @@
           </tbody>
         </table>
       </div>
+      <input type="hidden" id="product_data" value="">
       <!-- 페이지 네이션 코드를 넣어주세요 -->
       <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center" id="pagination">
-          <li class="page-item disabled"><a class="page-link">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <input type="hidden" id="max_page">
+        <ul class="pagination justify-content-center" id="pagination" value="">
         </ul>
       </nav>
       <div class="author_link">
@@ -76,8 +74,9 @@
         const urlStr = window.location.href;
         const url = new URL(urlStr);
         const urlParams = url.searchParams;
-        const p_no = urlParams.get('p_no');
         const cat = urlParams.get('cat');
+        const URLSearch = new URLSearchParams(location.search);
+
         if(cat == '64'){
           cat_text = '상의';
         } else if(cat == '65'){
@@ -98,7 +97,9 @@
           gen_text = '';
         }
         const search_text = urlParams.get('q');
-
+        let page = Number(urlParams.get('page'));
+        if(page){ } else { page = 1; }
+        
         const catselect = document.getElementById('catselect'); 
         const catsel_len = catselect.options.length; 
         for (let i=0; i<catsel_len; i++){  
@@ -125,97 +126,106 @@
           const cat_val = $("option:selected", this).attr("value");
           const URLSearch = new URLSearchParams(location.search);
           URLSearch.set('cat', String(cat_val));
+          URLSearch.set('page', '1');
           const newParam = URLSearch.toString();
         
           window.open(location.pathname + '?' + newParam, '_self');
         });
         $("#sexselect").on("change", function(){
-          //selected value
-          $(this).val();
           const sex_val = $("option:selected", this).attr("value");
-          const URLSearch = new URLSearchParams(location.search);
           URLSearch.set('gen', String(sex_val));
+          URLSearch.set('page', '1');
           const newParam = URLSearch.toString();
         
           window.open(location.pathname + '?' + newParam, '_self');
         });
-
-
         const Url = './json_data/kream_data_total.json';
           $.ajax({
             url: Url,
             type: "GET",
             async: false,
-            data: "sex:man",
-            //contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             dataType:"json",
             success: function(result) {
-              //console.log(result)
-              const dataTable = document.getElementById('data-table');
               console.log(result.length);
+              let product_cnt = 0;
+              let page_no_cnt = 1;
+
               result.forEach((item) => {
                 const compare_title = item.product;
-                const row = dataTable.insertRow();
-                if(cat != null){
+                if(cat){
                   if((item.category == cat_text) && ((item.sex == gen_text) || (item.sex == '남자/여자'))){
                     if(search_text){
-                      if(compare_title.indexOf(search_text) != -1){
-                        row.insertCell(0).innerHTML = '<input type="checkbox">'
-                        row.insertCell(1).innerHTML = item.category;
-                        row.insertCell(2).innerHTML = item.sex;
-                        row.insertCell(3).innerHTML = item.brand;
-                        row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-                        row.insertCell(5).innerHTML = item.price;
-                        //row.insertCell(6).innerHTML = item.update;
+                      if((compare_title.indexOf(search_text) != -1) && (item.category == cat_text) && ((item.sex == gen_text) || (item.sex == '남자/여자'))){
+                        row_html(item, product_cnt);
+                        product_cnt++;
                       }
                     } else {
-                      row.insertCell(0).innerHTML = '<input type="checkbox">'
-                      row.insertCell(1).innerHTML = item.category;
-                      row.insertCell(2).innerHTML = item.sex;
-                      row.insertCell(3).innerHTML = item.brand;
-                      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-                      row.insertCell(5).innerHTML = item.price;
-                      //row.insertCell(6).innerHTML = item.update;
-                    }    
-                  } else {
-                    if(search_text){
-                      if(compare_title.indexOf(search_text) != -1){
-                        row.insertCell(0).innerHTML = '<input type="checkbox">'
-                        row.insertCell(1).innerHTML = item.category;
-                        row.insertCell(2).innerHTML = item.sex;
-                        row.insertCell(3).innerHTML = item.brand;
-                        row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-                        row.insertCell(5).innerHTML = item.price;
-                        //row.insertCell(6).innerHTML = item.update;
-                      }
-                    } else {
-                      row.insertCell(0).innerHTML = '<input type="checkbox">'
-                      row.insertCell(1).innerHTML = item.category;
-                      row.insertCell(2).innerHTML = item.sex;
-                      row.insertCell(3).innerHTML = item.brand;
-                      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-                      row.insertCell(5).innerHTML = item.price;
-                      //row.insertCell(6).innerHTML = item.update;
-                    }
+                      row_html(item, product_cnt);
+                      product_cnt++;
+                    }  
                   }
                 } else {
-                    row.insertCell(0).innerHTML = '<input type="checkbox">'
-                    row.insertCell(1).innerHTML = item.category;
-                    row.insertCell(2).innerHTML = item.sex;
-                    row.insertCell(3).innerHTML = item.brand;
-                    row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-                    row.insertCell(5).innerHTML = item.price;
-                    //row.insertCell(6).innerHTML = item.update;
+                  if(search_text){
+                    if(compare_title.indexOf(search_text) != -1){
+                      row_html(item, product_cnt);
+                      product_cnt++;
+                    }
+                  } else {
+                    row_html(item, product_cnt);
+                    product_cnt++;
+                  }
                 }
-                
-                  
               });
+
+              console.log(product_cnt);
+              document.getElementById('max_page').value = product_cnt;
             },
             error:function(error) {
               console.log(`Error ${error}`)
             },
-
           })
+          
+          const max_page = document.getElementById('max_page').value;
+          const pagination = document.getElementById('pagination');
+          const page_cnt = Math.round(max_page / 20);
+          if(page == 1){
+            let temp = '<li class="page-item disabled"><a class="page-link" href="#" onclick="callFunction('+(page-1)+');">Previous</a></li>';
+            $('.pagination').append(temp);
+          } else {
+            let temp = '<li class="page-item"><a class="page-link" href="#" onclick="callFunction('+(page-1)+');">Previous</a></li>';
+            $('.pagination').append(temp);
+          }
+          for(let j = 1; page_cnt+1 > j; j++){
+            if(page == j){
+              temp = '<li class="page-item"><a class="page-link active" href="#" onclick="callFunction('+j+');">'+j+'</a></li>';
+              $('.pagination').append(temp);
+            } else {
+              temp = '<li class="page-item"><a class="page-link" href="#" onclick="callFunction('+j+');">'+j+'</a></li>';
+              $('.pagination').append(temp);
+            }
+          }
+          if(page == page_cnt){
+            temp = '<li class="page-item disabled"><a class="page-link" href="#" onclick="callFunction('+(page+1)+');">Next</a></li>';
+            $('.pagination').append(temp);
+          } else {
+            temp = '<li class="page-item"><a class="page-link" href="#" onclick="callFunction('+(page+1)+');">Next</a></li>';
+            $('.pagination').append(temp);
+          }
+
+          function row_html(item, product_cnt){
+            if((product_cnt < page * 20) && (product_cnt >= page * 20 - 20)){
+              const dataTable = document.getElementById('data-table');
+              const row = dataTable.insertRow();
+              row.insertCell(0).innerHTML = '<input type="checkbox">'
+              row.insertCell(1).innerHTML = item.category;
+              row.insertCell(2).innerHTML = item.sex;
+              row.insertCell(3).innerHTML = item.brand;
+              row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+              row.insertCell(5).innerHTML = item.price;
+              //row.insertCell(6).innerHTML = item.update;
+            }
+          }    
       })
       // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
       /**
@@ -227,7 +237,22 @@
         // ...
       ];
       **/
- 
+      /**
+      const dataTable = document.getElementById('data-table');
+      const row = dataTable.insertRow();
+      row.insertCell(0).innerHTML = '<input type="checkbox">'
+      row.insertCell(1).innerHTML = item.category;
+      row.insertCell(2).innerHTML = item.sex;
+      row.insertCell(3).innerHTML = item.brand;
+      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+      row.insertCell(5).innerHTML = item.price;
+      //row.insertCell(6).innerHTML = item.update;
+**/
+      function callFunction(obj) {
+        URLSearch.set('page', String(obj));
+        const newParam = URLSearch.toString();
+        window.open(location.pathname + '?' + newParam, '_self');
+      }
       let today = new Date();   
       let year = today.getFullYear(); // 년도
       let month = today.getMonth() + 1;  // 월
@@ -240,10 +265,6 @@
 
       const search_btn = document.getElementById('search');
       const del_btn = document.getElementById('sel_del');
-
-      search_btn.addEventListener('click', function(){
-        //alert('상품 조회중입니다.');
-      })
 
       del_btn.addEventListener('click', function(){
         if(confirm('진짜 삭제할꺼지?')){
