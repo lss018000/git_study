@@ -3,7 +3,7 @@ admin_info.yaml
 /python3
 /oz_project/Admin페이지만들기/json_data
 test.xlsx
-admin.js
+admin_back.js
+product_get.py
 python_test.py
 json_test.js
-product_get.py
