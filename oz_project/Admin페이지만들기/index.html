@@ -70,56 +70,56 @@
       <div class="author_link">
         <a href="https://github.com/lss018000/git_study/tree/main/oz_project/Admin%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank" class="git_link"><i class="bi bi-github"></i> lss018000 Github</a>
       </div>
-      <script>
-        const urlStr = window.location.href;
-        const url = new URL(urlStr);
-        const urlParams = url.searchParams;
-        const cat = urlParams.get('cat');
-        const URLSearch = new URLSearchParams(location.search);
+    </div>
+    <script>
+      const urlStr = window.location.href;
+      const url = new URL(urlStr);
+      const urlParams = url.searchParams;
+      const cat = urlParams.get('cat');
+      const URLSearch = new URLSearchParams(location.search);
 
-        if(cat == '64'){
-          cat_text = '상의';
-        } else if(cat == '65'){
-          cat_text = '하의';
-        } else if(cat == '34'){
-          cat_text = '신발';
-        } else if(cat == '7'){
-          cat_text = '패션잡화';
-        } else {
-          cat_text = '';
+      if(cat == '64'){
+        cat_text = '상의';
+      } else if(cat == '65'){
+        cat_text = '하의';
+      } else if(cat == '34'){
+        cat_text = '신발';
+      } else if(cat == '7'){
+        cat_text = '패션잡화';
+      } else {
+        cat_text = '';
+      }
+      const gen = urlParams.get('gen');
+      if(gen == 'men'){
+        gen_text = '남자';
+      }else if(gen == 'women'){
+        gen_text = '여자';
+      }else{
+        gen_text = '';
+      }
+      const search_text = urlParams.get('q');
+      let page = Number(urlParams.get('page'));
+      if(page){ } else { page = 1; }
+      
+      const catselect = document.getElementById('catselect'); 
+      const catsel_len = catselect.options.length; 
+      for (let i=0; i<catsel_len; i++){  
+        if(catselect.options[i].value == cat){
+          catselect.options[i].selected = true;
         }
-        const gen = urlParams.get('gen');
-        if(gen == 'men'){
-          gen_text = '남자';
-        }else if(gen == 'women'){
-          gen_text = '여자';
-        }else{
-          gen_text = '';
+      }  
+      const sexselect = document.getElementById('sexselect'); 
+      const sexsel_len = sexselect.options.length; 
+      for (let i=0; i<sexsel_len; i++){  
+        if(sexselect.options[i].value == gen){
+          sexselect.options[i].selected = true;
         }
-        const search_text = urlParams.get('q');
-        let page = Number(urlParams.get('page'));
-        if(page){ } else { page = 1; }
-        
-        const catselect = document.getElementById('catselect'); 
-        const catsel_len = catselect.options.length; 
-        for (let i=0; i<catsel_len; i++){  
-          if(catselect.options[i].value == cat){
-            catselect.options[i].selected = true;
-          }
-        }  
-        const sexselect = document.getElementById('sexselect'); 
-        const sexsel_len = sexselect.options.length; 
-        for (let i=0; i<sexsel_len; i++){  
-          if(sexselect.options[i].value == gen){
-            sexselect.options[i].selected = true;
-          }
-        }  
-        const q = document.getElementById('search_text'); 
-        q.value = search_text;
-        
+      }  
+      const q = document.getElementById('search_text'); 
+      q.value = search_text;
+      
       // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
       $(document).ready(function() {
-
         $("#catselect").on("change", function(){
           //selected value
           $(this).val();
@@ -128,7 +128,6 @@
           URLSearch.set('cat', String(cat_val));
           URLSearch.set('page', '1');
           const newParam = URLSearch.toString();
-        
           window.open(location.pathname + '?' + newParam, '_self');
         });
         $("#sexselect").on("change", function(){
@@ -136,7 +135,6 @@
           URLSearch.set('gen', String(sex_val));
           URLSearch.set('page', '1');
           const newParam = URLSearch.toString();
-        
           window.open(location.pathname + '?' + newParam, '_self');
         });
         const Url = './json_data/kream_data_total.json';
@@ -150,7 +148,6 @@
               console.log(result.length);
               let product_cnt = 0;
               let page_no_cnt = 1;
-
               result.forEach((item) => {
                 const compare_title = item.product;
                 if(cat){
@@ -177,15 +174,12 @@
                   }
                 }
               });
-
-              console.log(product_cnt);
               document.getElementById('max_page').value = product_cnt;
             },
             error:function(error) {
               console.log(`Error ${error}`)
             },
           })
-          
           const max_page = document.getElementById('max_page').value;
           const pagination = document.getElementById('pagination');
           const page_cnt = Math.round(max_page / 20);
@@ -228,26 +222,7 @@
           }    
       })
       // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
-      /**
-      const data = [
-        { category: "상의", brand: 'Supreme', sex: '남자', product: '슈프림 박스로고 후드티<a href="">상품보기</a>', price: '390,000', update:'2023-12-12' },
-        { category: "하의", brand: 'DIESEL', sex: '여자', product: '디젤 트랙 팬츠<a href="">상품보기</a>', price: '188,000', update:'2023-12-15' },
-        { category: "신발", brand: 'Nike', sex: '남자', product: '에어포스 1<a href="">상품보기</a>', price: '137,000', update:'2023-12-16' },
-        { category: "패션잡화", brand: 'Music&Goods', sex: '여자', product: '빵빵이 키링<a href="">상품보기</a>', price: '29,000', update:'2023-12-17' },
-        // ...
-      ];
-      **/
-      /**
-      const dataTable = document.getElementById('data-table');
-      const row = dataTable.insertRow();
-      row.insertCell(0).innerHTML = '<input type="checkbox">'
-      row.insertCell(1).innerHTML = item.category;
-      row.insertCell(2).innerHTML = item.sex;
-      row.insertCell(3).innerHTML = item.brand;
-      row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
-      row.insertCell(5).innerHTML = item.price;
-      //row.insertCell(6).innerHTML = item.update;
-**/
+
       function callFunction(obj) {
         URLSearch.set('page', String(obj));
         const newParam = URLSearch.toString();
@@ -275,5 +250,5 @@
       })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
