@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="diary-container">
+        <h1 class="diary-title">📖 My Diary</h1>
+
+        <table class="diary-entry">
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" id="diaryDate"></td>
+            </tr>
+            <tr>
+                <td>Weather:</td>
+                <td>
+                    <label><input type="radio" name="weather" value="sunny"> Sunny</label>
+                    <label><input type="radio" name="weather" value="cloudy"> Cloudy</label>
+                    <label><input type="radio" name="weather" value="rainy"> Rainy</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Diary:</td>
+                <td><textarea id="diaryText" rows="5" cols="40" placeholder="Write your diary here..."></textarea></td>
+            </tr>
+            <tr>
+                <td>Emotion:</td>
+                <td>
+                    <input type="range" id="emotionLevel" min="1" max="10" value="5">
+                    <span id="emotionValue">5</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Image:</td>
+                <td><img src="images/diary-image.jpg" alt="Diary Image"></td>
+            </tr>
+        </tablediary-image>
+    </div>
+</body>
+</html>

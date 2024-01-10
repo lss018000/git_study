@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림 일기장</title>
+    <style>
+        .diary_area{
+            background:burlywood;
+            border:5px double #000000;
+            width:700px;
+            margin:50px auto;
+        }
+        .top_area{width:100%;overflow:hidden;}
+        .top_area > div{width:calc(50% - 2px);float:left;border:1px solid #000000;padding:10px 0;text-align:center;line-height:30px;}
+        .content_area{width:100%;overflow:hidden;background:#ffffff;}
+        .content_area > .title_area{padding:20px;border:1px solid #000000;}
+        .content_area > .title_area > input{width:calc(100% - 100px);height:30px;background:#ffffff;border:none;border-bottom:1px solid #000000;font-size:26px;}
+        .content_area > .img_area{border:1px solid #000000;}
+        .content_area > .img_area > img{width:100%;height:auto;}
+        .content_area > .text_area{border:1px solid #000000;background:burlywood}
+        .content_area > .text_area > table{margin:5px;border:1px solid #000000;width:95%;margin:10px auto;background:#ffffff;text-align:center;}
+    </style>
+</head>
+<body>
+    <div class="diary_area">
+        <div class="top_area">
+            <div class="date">2023년 12월 15일(금)</div>
+            <div class="weather">
+                <label><input type="radio" name="weather" value="w1">맑음</label>
+                <label><input type="radio" name="weather" value="w2">흐림</label>
+                <label><input type="radio" name="weather" value="w3">비</label>
+                <label><input type="radio" name="weather" value="w4" checked="CHECKED">눈</label>
+            </div>
+        </div>
+        <div class="content_area">
+            <div class="title_area">제목 : <input type="text" value="처음 CSS 배운 날"></div>
+            <div class="img_area">
+                <img src="https://picsum.photos/1200/500" alt="랜덤 이미지">
+                <img src="https://picsum.photos/1200/500" alt="랜덤 이미지">
+            </div>
+            <div class="text_area">
+                <table border="1">
+                    <tr>
+                        <td></td>
+                        <td>이</td>
+                        <td>것</td>
+                        <td>은</td>
+                        <td></td>
+                        <td>다</td>
+                        <td>닌</td>
+                        <td>지</td>
+                        <td></td>
+                        <td>3</td>
+                        <td>일</td>
+                        <td>만</td>
+                        <td>에</td>
+                        <td></td>
+                        <td>C</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>S</td>
+                        <td>를</td>
+                        <td></td>
+                        <td>처</td>
+                        <td>음</td>
+                        <td></td>
+                        <td>배</td>
+                        <td>우</td>
+                        <td>고</td>
+                        <td></td>
+                        <td>만</td>
+                        <td>든</td>
+                        <td></td>
+                        <td>것</td>
+                    </tr>
+                    <tr>
+                        <td>입</td>
+                        <td>니</td>
+                        <td>다</td>
+                        <td>.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>그</td>
+                        <td>러</td>
+                        <td>니</td>
+                        <td></td>
+                        <td>여</td>
+                        <td>러</td>
+                        <td>분</td>
+                        <td>도</td>
+                        <td></td>
+                        <td>더</td>
+                        <td></td>
+                        <td>멋</td>
+                        <td>있</td>
+                        <td>게</td>
+                    </tr>
+                    <tr>
+                        <td>만</td>
+                        <td>드</td>
+                        <td>실</td>
+                        <td></td>
+                        <td>수</td>
+                        <td></td>
+                        <td>있</td>
+                        <td>으</td>
+                        <td>실</td>
+                        <td></td>
+                        <td>겁</td>
+                        <td>니</td>
+                        <td>다</td>
+                        <td>.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>화</td>
+                        <td>이</td>
+                        <td>팅</td>
+                        <td>!</td>
+                        <td>!</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

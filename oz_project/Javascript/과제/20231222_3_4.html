@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Number 맞추기</title>
+</head>
+<body>
+    <h2>Mystery Number 맞추기</h2>
+    <p>1부터 100사이의 숫자를 입력하세요!</p>
+    <form method="_GET" onsubmit="clicksubmit();">
+        <input type="number" class="input_num" id="input_num">
+        <input type="submit" class="input_btn" id="input_btn" value="뚜둥!">
+    </form>
+    <p id="answer"></p>
+    <script>
+        
+        function rand(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        random_no = rand(0,100);
+        // alert(random_no);
+        function clicksubmit(){
+
+            let input_num = document.getElementById("input_num").value;
+            const p = document.querySelector('p#answer'); 
+            if((input_num < 1) && (input_num > 100)){
+                p.textContent = "힌트 : 1부터 100사이의 숫자를 입력하세요!";
+            } else {
+                if(input_num > random_no){
+                    p.textContent = "힌트 : 숫자가 너무 커요! 조금더 줄여보세요!";
+                    event.preventDefault();
+                } else if(input_num < random_no){
+                    p.textContent = "힌트 : 숫자가 너무 작아요! 조금더 높여보세요!";
+                    event.preventDefault();
+                } else{
+                    alert('정답입니다. 다시시작할께요!');
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

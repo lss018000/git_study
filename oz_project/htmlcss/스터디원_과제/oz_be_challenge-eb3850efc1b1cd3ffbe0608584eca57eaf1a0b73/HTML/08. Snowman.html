@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>귀여운 눈사람</title>
+    <style>
+        body{background: skyblue;height:100%;width:100%;overflow:hidden;}
+        .snowman{width:500px;height:500px;margin:0 auto;}
+        .hat{}
+        .hat > .hat_top{width:50px;height:60px;margin:0 225px;background: black;}
+        .hat > .hat_bottom{width:80px;height:20px;margin:0 210px;background: black;z-index:2;} 
+        .head{width:100px;height:100px;margin:0 auto;border-radius: 50%; background:white;margin-top:-10px; z-index:1; position:relative;}
+        .head > .eye{}
+        .head > .eye > .left_eye{width:10px;height:10px;margin:0;border-radius:50%;background:black;position:absolute;top:30px;left:30px;}
+        .head > .eye > .right_eye{width:10px;height:10px;margin:0;border-radius:50%;background:black;position:absolute;top:30px;right:30px;}
+        .head > .mouth{width:40px;height:10px;margin:0;background:orange;position:absolute;top:70px;left:30px;}
+        .body{background:white;width:200px;height:200px;margin:0 150px;border-radius:50%;position:relateive;}
+        .body > .arm{}
+        .body > .arm > .left_arm{width:70px;height:10px;background:brown;position:absolute;transform: rotate(45deg);left:600px;}
+        .body > .arm > .right_arm{width:70px;height:10px;background:brown;position:absolute;transform: rotate(125deg);right:587px;}
+        .body > .button{width:5px;height:5px;background:black;position:relative;left:50%;top:30%;transform:translate(-50%, 0)}
+        .body > .button > .button1{position:absolute;top:30px;}
+        .body > .button > .button2{position:absolute;top:30px;}
+        .body > .button > .button3{position:absolute;top:30px;}
+        .foot{width:250px;height:250px;margin:0 125px;background:white;border-radius:50%;position:relative;}
+
+    </style>
+</head>
+<body>
+    <div class="snowman">
+        <div class="hat">
+            <div class="hat_top"></div>
+            <div class="hat_bottom"></div>
+        </div>
+        <div class="head">
+            <div class="eye">
+                <div class="left_eye"></div>
+                <div class="right_eye"></div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+        <div class="body">
+            <div class="arm">
+                <div class="left_arm"></div>
+                <div class="right_arm"></div>
+            </div>
+            <div class="button">
+                <div class="button1"></div>
+                <div class="button2"></div>
+                <div class="button3"></div>
+            </div>
+        </div>
+        <div class="foot"></div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/oz_icon.png" />
+    <title>카운트다운 타이머</title>
+    <link href="count.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h2>카운트다운 종료 시간을 선택해주세요</h2>
+        <input type="datetime-local" id="sel_datetime">
+      <!-- 타이머 표시 영역 -->
+      <div id="timer">
+        <div class="time-unit">
+          <span class="label">Days</span>
+          <span>
+            <span class="time-text" id="days">00</span>
+          </span>
+        </div>
+        <div class="time-unit">
+          <span class="label">Hours</span>
+          <span>
+            <span class="time-text" id="hours">00</span>
+          </span>
+        </div>
+        <div class="time-unit">
+          <span class="label">Minutes</span>
+          <span>
+            <span class="time-text" id="minutes">00</span>
+          </span>
+        </div>
+        <div class="time-unit">
+            <span class="label">Seconds</span>
+          <span>
+            <span class="time-text" id="seconds">00</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="count.js"></script>
+  </body>
+</html>

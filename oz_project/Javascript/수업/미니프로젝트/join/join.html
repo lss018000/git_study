@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 양식</title>
+    <link href="join.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="container">
+        <form id="form" actiion="#">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <td>
+                        <input name="id" placeholder="ID" autocomplete="off" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>PW</th>
+                    <td>
+                        <input type="password" name="pw1" placeholder="PW" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>PW Check</th>
+                    <td>
+                        <input type="password" name="pw2" placeholder="PW Check">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        <input name="name" placeholder="Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>
+                        <input name="phone" placeholder="Phone">
+                    </td>
+                </tr>
+                <tr>
+                    <th>원하는 직무</th>
+                    <td>
+                        <select name="position">
+                            <option value="developer">개발자</option>
+                            <option value="designer">웹디자이너</option>
+                            <option value="manager">기획자</option>
+                            <option value="undetermined" selected>미정</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td>
+                        <label>
+                            <input type="radio" name="gender" value="male" checked> 남자
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="femail"> 여자
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>
+                        <input name="email" placeholder="abc@abc.com">
+                    </td>
+                </tr>
+                <tr>
+                    <th>자기소개</th>
+                    <td>
+                        <textarea name="intro"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <input type="submit" value="가입" class="btn" title="가입">
+                <input type="reset" value="리셋" class="btn" title="처음으로">
+            </div>
+        </form>
+    </div>
+    <script src="join.js"></script>
+</body>
+</html>
+
+<!-- 3회차 마무리 과제
+
+회원 가입을 완료하면 나타나느 환영 인사를 다음과 같이 만들어보자!
+
+userID님 환영합니다.
+회원 가입 시 입력하신 내역은 다음과 같습니다.
+아이디 : userID
+이름 : userName
+전화번호 : userPhone
+원하는 직무 : userPosition -->

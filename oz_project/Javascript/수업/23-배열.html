@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    
+    <script>
+        const vos = ["박지헌", "최현준", "김경록"];
+        // console.log(vos);
+        // console.log(vos[0]);
+        // console.log(vos[1]);
+        // console.log(vos[2]);
+        // console.log(vos[5]);
+
+        // for(let i = 0; i < 3; i += 1){
+        //     console.log(vos[i]);
+        // }
+        
+        // push : 배열에 주어진 요소 추가하기
+        vos.push("강윤호")
+        console.log(vos);
+
+        // pop : 배열의 끝부분부터 요소 제거하기
+        vos.pop();
+        console.log(vos);
+
+        //indexOf : 주어진 요소의 유무를 인덱스 번호로 확인
+        console.log(vos.indexOf("최현준"));
+        console.log(vos.indexOf("강윤호"));
+
+        // splice : 정해진 위치에서부터 정해진 개수만큼 요소 제거
+        // vos.splice(1,2);
+        // console.log(vos);
+
+        // splice로 요소 지운 다음, 대체 값을 채우는 것도 가능하다!
+        // vos.splice(0,3,"지헌","현준","경록");
+        // console.log(vos);
+
+        // forEach : 배열의 개별 요소에 대한 함수를 차례대로 호출
+        vos.forEach(function(item){
+            console.log("포이치에서 호출된 함수!" + item);
+        })
+
+    </script>
+</body>
+</html>

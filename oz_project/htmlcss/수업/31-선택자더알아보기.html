@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 더 알아보기</title>
+    <style>
+        /*
+        기호와 함께 사용하는 속성 선택자
+        * : 값의 포함 여부
+        ^ : 값의 시작 여부
+        $ : 값의 끝 여부
+        */
+        img[alt]{
+            border:5px solid red;
+        }
+        img[width *= "1"]{
+            border:5px solid blue;
+        }
+        img[width ^= "2"]{
+            border:5px solid gray;
+        }
+        img[width $= "1"]{
+            border:5px solid yellow;
+        }
+
+        body em{
+            color:red;
+            font-weight:bold;
+        }
+
+        #ff + p{
+            color:orange;
+        }
+
+        /*
+        형제 선택자는 뒤이어 등장하는 형제들에만 적용된다
+        */
+        #ff ~ p{
+            color:blue;
+        }
+
+    </style>
+</head>
+<body>
+    <img src="https://picsum.photos/200/200" width="120" alt="abc">
+    <img src="https://picsum.photos/200/200" width="233">
+    <img src="https://picsum.photos/200/200" width="342">
+    <img src="https://picsum.photos/200/200" width="451" id="ff">
+    <p>1안녕하세요</p>
+    <p>2안녕하세요</p>
+    <p>3안녕<em>ddd</em>하세요</p>
+    <p>4안녕하세요</p>
+    
+</body>
+</html>

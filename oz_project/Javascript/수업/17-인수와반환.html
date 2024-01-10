@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인수와 반환</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        console.log(createParagraph("첫번째 문단, 와우!", "red"));
+        console.log(createParagraph("두번째 문단, 와우!", "blue"));
+        console.log(createParagraph("세번째 문단, 와우!", "yellow"));
+
+
+        function createParagraph(content, color){
+            const p = document.createElement("p");
+            p.style.color = color;
+            p.textContent = content;
+            document.querySelector("#container").append(p);
+
+            return `방금 만든 태그의 콘텐츠 : ${content}, 색상 : ${color}`;
+        }
+
+    </script>
+</body>
+</html>

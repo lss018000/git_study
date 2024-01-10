@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>겹치거나 넘치는 요소 다루기</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            position:relative;
+        }
+        .div1{
+            background:orange;
+            z-index:4;
+            overflow:hidden;
+        }
+        .div2{
+            background:red;
+            bottom:50px;
+            z-index:3;
+            overflow:scroll;
+        }
+        .die3{
+            background:purple;
+            bottom:100px;
+            z-index:2;
+            overflow:auto;
+            margin-top:100px;
+        }
+        .div4{background:green;bottom:150px;z-index:1;margin-top:200px;}
+    </style>
+</head>
+    <div class="div1">1orangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorange</div>
+    <div class="div2">2orangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorange</div>
+    <div class="div3">3orangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorange</div>
+    <div class="div4">4orangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorangeorange</div>
+</body>
+</html>

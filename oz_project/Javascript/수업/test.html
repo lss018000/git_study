@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carousel</title>
+  <style>
+    #carousel {
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.slide {
+  width: 500px;
+  height: 300px;
+  float: left;
+  margin: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+.btn{max-width:500px;margin:0 auto;}
+.button{
+    cursor:pointer;
+    padding:10px;
+    border:1px solid #555555;
+    background:#555555;
+    color:#ffffff;
+}
+.btn > .button:nth-child(1){float:left;}
+.btn > .button:nth-child(1){float:right;}
+</style>
+</head>
+<body>
+  <div id="carousel">
+    <div class="slide">
+      <img src="https://picsum.photos/500/300" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="https://picsum.photos/500/400" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="https://picsum.photos/500/500" alt="Image 3">
+    </div>
+  </div>
+    <div class="btn">
+        <div class="button" id="previous-button">Previous</div>
+        <div class="button" id="next-button">Next</div>   
+    </div>
+
+  <script>
+    window.onload = function(){
+        const carousel = document.getElementById("carousel");
+        const slides = carousel.querySelectorAll(".slide");
+
+        let currentSlideIndex = 0;
+
+        function nextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        slides[currentSlideIndex].style.display = "block";
+        // alert(currentSlideIndex);
+        slides[currentSlideIndex - 1].style.display = "none";
+        slides[currentSlideIndex + 1].style.display = "none";
+        }
+
+        function previousSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        slides[currentSlideIndex].style.display = "block";
+        slides[currentSlideIndex - 1].style.display = "none";
+        slides[currentSlideIndex + 1].style.display = "none";
+        }
+
+        slides[0].style.display = "block";
+
+        const nextButton = document.getElementById("next-button");
+        nextButton.addEventListener("click", nextSlide);
+
+        const previousButton = document.getElementById("previous-button");
+        previousButton.addEventListener("click", previousSlide);
+    }
+    </script>
+</body>
+</html>

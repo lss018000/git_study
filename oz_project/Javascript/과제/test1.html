@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운트다운</title>
+</head>
+<body>
+    <div class="clock"></div>
+    <div class="clock2"></div>
+    <script>
+        const now = new Date();
+        const baseDate = new Date("2023-12-31 23:59:59:999");
+        const clock = document.querySelector(".clock");
+        clock.textContent = `현재 날짜와 시간 : ${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초`;
+        setInterval(() => {
+            const now = new Date();
+            clock.textContent = `현재 날짜와 시간 : ${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초`;
+        }, 1000);
+
+        const elapsedDays = Math.floor((baseDate - now) / (1000 * 60 * 60 * 24));
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
+        const remainingHours = 24 - hour;
+        const remainingMinutes = 60 - minute;
+
+        const clock2 = document.querySelector(".clock2");
+        clock2.textContent = `올해의 남은 시간 : ${elapsedDays}일 ${remainingHours}시간 ${remainingMinutes}분 ${second}초`;
+        setInterval(() => {
+            const now = new Date();
+            const remainingHours = 24 - now.getHours();
+            const remainingMinutes = 60 - now.getMinutes();
+            const remainingSeconds = 60 - now.getSeconds();
+            clock2.textContent = `올해의 남은 시간 : ${elapsedDays}일 ${remainingHours}시간 ${remainingMinutes}분 ${remainingSeconds}초`;
+        }, 1000);
+    </script>
+</body>
+</html>

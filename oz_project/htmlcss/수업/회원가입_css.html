@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        .content_area{
+            box-shadow: 3px 3px 0px 2px rgba(148,0,211,1), 9px 9px 0px 4px rgba(75,0,130,1), 12px 12px 0px 5px rgba(0,0,255,1), 15px 15px 0px 6px rgba(0,255,0,1), 18px 18px 0px 7px rgba(255,255,0,1), 21px 21px 0px 8px rgba(255,127,0,1),24px 25px 0px 9px rgba(255,0,0,1);
+            width:100%;max-width:700px;margin:30px auto;background:blanchedalmond;padding:30px;border-radius:5%;
+            text-align:center;
+        }
+        label.title_label{display:none;}
+        form > fieldset > input, form > fieldset > select{width:100%;height:30px;}
+        .phone_no{width:calc(33% - 15px);}
+        label.sex{width:33%;}
+        .send_no, .confirm_no{text-align:right;}
+        .send_no > span, .confirm_no > span{margin-right:5px;}
+        .css_btn{width:40%;padding:10p;margin:50px auto;background:#ffffff;border:1px solid #cccccc;line-height:30px;}
+    </style>
+</head>
+<body>
+    <div class="content_area">
+        <header>
+            <h1>회원가입</h1>
+            <p>필수 사항을 빠짐 없이 입력해주세요.</p>
+        </header>
+        <main>
+            <form action="" method="POST">
+                <fieldset>
+                    <legend>필수</legend>
+                    <label for="email" class="title_label">이메일 : </label>
+                    <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요.">
+                    <hr />
+                    
+                    <label for="name" class="title_label">이름 : </label>
+                    <input type="text" name="name" id="name" placeholder="이름을 입력해주세요.">
+                    <hr />
+
+                    <label for="sex" class="title_label">성별 : </label>
+                    <label for="sex1" class="sex"><input type="radio" name="sex" id="sex1"> 남</label>
+                    <label for="sex2" class="sex"><input type="radio" name="sex" id="sex2"> 여</label>
+                    <label for="sex0" class="sex"><input type="radio" name="sex" id="sex0"> 비밀</label>
+                    <hr />
+                    
+                    <label for="pwd" class="title_label">비밀번호 : </label>
+                    <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요.">
+                    <br/><br/>
+                    <label for="pwd" class="title_label">비밀번호 확인 : </label>
+                    <input type="password" name="pwd_chk" id="pwd_chk" placeholder="비밀번호를 다시 입력해주세요.">
+                    <hr />
+                    
+                    <label for="phone1" class="title_label">휴대폰 : </label>
+                    <select name="phone1" class="phone_no">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="018">018</option>
+                    </select>
+                    - <input type="text" name="phone2" id="phone2" class="phone_no"> - <input type="text" name="phone3" id="phone3" class="phone_no">
+                    <hr />
+                    <div class="send_no">
+                        <span>000000</span><button>인증번호 전송</button>
+                    </div>
+                    <hr />
+                    <div class="confirm_no">
+                        <span>3:00</span><button disabled>인증 완료</button>
+                    </div>
+                    <hr />
+                    <label for="region" class="title_label">지역 : </label>
+                    <select name="select">
+                        <option value="">--지역을 선택하세요--</option>
+                        <option value="reg1">서울</option>
+                        <option value="reg2">경기</option>
+                        <option value="reg3">강원</option>
+                        <option value="reg4">충청</option>
+                        <option value="reg5">경상</option>
+                        <option value="reg6">전라</option>
+                        <option value="others">그외</option>
+                    </select>
+                </fieldset>
+
+                <input type="submit" class="css_btn" value="가입하기">
+                <input type="reset" class="css_btn" value="취소">
+            </form>
+        </main>
+        <footer><center>&copy; OZ</center></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="push">PUSH</button>
+    <hr />
+    <img src="" alt="강아지 사진">
+
+    <script>
+        
+        // https://dog.ceo/api/breeds/image/random
+
+        const rqs = new XMLHttpRequest();
+        const button = document.getElementById("push");
+
+        button.addEventListener("click", function(){
+            rqs.open("get", "https://dog.ceo/api/breeds/image/random");
+            rqs.addEventListener("load", function(){
+                const result = JSON.parse(rqs.response);
+                const img = document.querySelector("img");
+                img.src = result.message;
+            })
+            rqs.send();
+        })
+
+        
+    </script>
+</body>
+</html>

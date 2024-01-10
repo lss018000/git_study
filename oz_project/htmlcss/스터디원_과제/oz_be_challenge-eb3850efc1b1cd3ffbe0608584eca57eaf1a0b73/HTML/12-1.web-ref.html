@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 반응형 웹 만들기</title>
+    <style>
+        body{padding:0;margin:0;}
+        .bg{width:100vw;height:100vh;background:red;padding: 0;line-height:100vh;font-size: 30px;text-align: center;}
+        .bg > div{display:none;}
+        .bg > .view_full{display:block;}
+
+        @media screen and (max-width:900px){
+            .bg{background:orange;}
+            .bg > .view_900{display:block;}
+            .bg > .view_full{display:none;}
+        }
+        @media screen and (max-width:800px){
+            .bg{background:yellow;}
+            .bg > .view_800{display:block;}
+            .bg > .view_900{display:none;}
+        }
+        @media screen and (max-width:700px){
+            .bg{background:green;}
+            .bg > .view_700{display:block;}
+            .bg > .view_800{display:none;}
+        }
+        @media screen and (max-width:600px){
+            .bg{background:blue;}
+            .bg > .view_600{display:block;}
+            .bg > .view_700{display:none;}
+        }
+        @media screen and (max-width:500px){
+            .bg{background:blueviolet;}
+            .bg > .view_500{display:block;}
+            .bg > .view_600{display:none;}
+        }
+        @media screen and (max-width:400px){
+            .bg{background:white;}
+            .bg > .view_400{display:block;}
+            .bg > .view_500{display:none;}
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="view_full">900px 이상</div>
+        <div class="view_900">900px 이하</div>
+        <div class="view_800">800px 이하</div>
+        <div class="view_700">700px 이하</div>
+        <div class="view_600">600px 이하</div>
+        <div class="view_500">500px 이하</div>
+        <div class="view_400">400px 이하</div>
+    </div>
+    
+</body>
+</html>

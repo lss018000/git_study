@@ -1,0 +1,164 @@
+<!DOCTYPE html> 
+<html lnag = "ko">
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>눈사람 부활</title>
+    </head>
+    <style>
+        *{
+            background-color: skyblue;
+        }
+        .snowman{
+            width: 300px;
+            height: 400px;
+            margin: auto; padding: 20px;
+            border-color:aliceblue;  
+        }
+        .head{
+            height: 150px;
+            position:relative; /**dd**/
+        }
+        .head > .hat{ 
+            background-color: black;
+            border-radius: 10%;
+            transform:rotate(10deg);
+            /* transform: translate(130px) rotate(10deg);  */
+            /* z-index: 5; */
+        }
+        .hat:nth-child(1){
+            width:50px; 
+            height: 30px; 
+            /* transform: translate(140px, 10px); */
+            margin:-5px 140px;
+        }
+        .hat:nth-child(2){
+            width:80px; 
+            height: 20px; 
+            margin:0 120px;
+        }
+        .face{
+            width: 100px; 
+            height:100px; 
+            background-color: white;
+            border-radius: 100px; 
+            position: relative;
+            margin:0 100px; 
+            /* z-index: 4; */
+            /* transform:translate(100px) skew(-15deg); */
+        }
+        .face > .eye{
+            width: 10px; height:15px; background-color: black;
+            border-radius: 25px;
+            display: inline-block; 
+        }
+        .eye:nth-child(1){
+            float:left; 
+            position:absolute;
+            top:20px;
+            left:30px;
+            /* transform: translate(30px,30px); */
+            transform:rotate(30deg);
+        }
+        .eye:nth-child(2){
+            float:right; 
+            position:absolute;
+            top:35px;
+            right:20px;
+            transform:rotate(30deg);
+            /* transform: translate(-20px,30px); */
+        }
+        .face > .mouse{
+            width: 30px; 
+            height:20px; 
+            background-color: pink;
+            border-radius: 0px 0px 30px 30px; 
+            position: absolute;
+            bottom:20px;
+            left:25px;
+            transform:rotate(30deg);
+            /* transform: translate(38px,60px); */
+        }
+        .body{
+            width: 300px;
+            height: 200px; 
+        }
+        .body > .top{
+            width: 100px;
+            height: 80px; background-color: white;
+            border-radius: 50% 50% 20% 20%; 
+            transform: translate(100px,-10px); position: relative;
+        }
+        .top > .arm {
+            width:30px; height:5px; margin:0; background-color:brown;
+        }
+        .arm:nth-child(1){
+            position:absolute; top:30px; right: 95px; 
+            transform: rotate(45deg);
+            animation: moving_left 2s 0s linear alternate infinite;
+
+        }
+        .arm:nth-child(2){
+            position: absolute; top:30px; left: 95px;
+            transform: rotate(-45deg);
+            animation: moving_right 2s 0s linear alternate infinite;
+
+        }
+        .body > .bottom{
+            width: 300px; 
+            height:120px; background-color: white;
+            border-radius: 50% 50% 20% 20% ; transform:translate(0px,-40px);
+        }
+        .dot{
+            width: 10px; height: 10px; background-color: black;
+            border: 1px dashed hotpink; border-radius: 20px;
+            margin: 20px; position: relative;  transform: translate(120px); 
+        }
+        .dot:nth-child(1){
+            z-index: 3;
+        }
+        .dot:nth-child(2){
+            z-index: 2;
+        }
+        .dot:nth-child(3){
+            z-index: 1;
+        }
+
+        @keyframes moving_left{
+            from {transform: rotate(45deg);}
+            to {transform: rotate(-45deg);}
+        }
+        @keyframes moving_right{
+            from {transform: rotate(-45deg);}
+            to {transform: rotate(45deg);}
+        }
+
+
+
+    </style>
+    <body>
+        <div class="snowman">
+            <div class="head">
+                <div class="hat"></div>
+                <div class="hat"></div>
+                <div class="face">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                    <div class="mouse"></div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="top">
+                    <div class="arm"></div>
+                    <div class="arm"></div>
+                </div>
+                <div class="bottom">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

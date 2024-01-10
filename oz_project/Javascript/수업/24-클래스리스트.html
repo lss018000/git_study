@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 리스트</title>
+    <style>
+        .pretty{
+            width:200px;
+            height:200px;
+            border-radius:50%;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://picsum.photos/300/300" alt="Image">
+    <br/>
+    <button id="add">Add Style</button>
+    <button id="remove">Remove Style</button>
+    <button id="toggle">Toggle Style</button>
+
+    <script>
+        const img = document.querySelector("img");
+        const addBtn = document.querySelector("#add");
+        const removeBtn = document.querySelector("#remove");
+        const toggleBtn = document.querySelector("#toggle");
+
+        console.log(img.classList)
+
+        addBtn.addEventListener("click", function(){
+            img.classList.add("pretty");
+            console.log(img.classList.contains("pretty"));
+        })
+        removeBtn.addEventListener("click", function(){
+            img.classList.remove("pretty");
+            console.log(img.classList.contains("pretty"));
+        })
+        toggleBtn.addEventListener("click",function(){
+            img.classList.toggle("pretty");
+            console.log(img.classList.contains("pretty"));
+        })
+    </script>
+</body>
+</html>

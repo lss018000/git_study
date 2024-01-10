@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>눈사람 만들기</title>
+    <style>
+        body{background:skyblue;height:100%;width:100%;overflow:hidden;}
+        .snowman{width:300px;margin:0 auto;}
+        .head > .cap > .top{width:40px;height:40px;margin:0 80px;background:black;}
+        .head > .cap > .bot{width:80px;height:20px;margin:0 60px;background:black;}
+        .head > .face{background:#ffffff;border-radius:50%;width:80px;height:80px;margin:0 60px;position:relative;}
+        .head > .face > .eye > .left{position:absolute;width:5px;height:5px;border-radius:50%;background:#000000;top:30px;left:25px;}
+        .head > .face > .eye > .right{position:absolute;width:5px;height:5px;border-radius:50%;background:#000000;top:30px;right:25px;}
+        .head > .face > .mouse{position:absolute;width:35px;height:15px;bottom:15px;left:50%;background:#000000;transform:translate(-50%,0);border-radius:0 0 50% 50%;}
+        .body{position:relative;background:#ffffff;width:140px;height:140px;margin:0 30px;border-radius:50%;}
+        .body > .arm > .left{width:50px;height:3px;position:absolute;left:-40px;top:40px;background:#000000;transform: rotate(45deg);}
+        .body > .arm > .right{width:50px;height:3px;position:absolute;right:-40px;top:40px;background:#000000;transform: rotate(-45deg);}
+        .body > .button > .dot{width:3px;height:3px;background:#000000;position:absolute;left:50%;transform:translate(-50%, 0);}
+        .body > .button > .dot:nth-child(1){top:30px;}
+        .body > .button > .dot:nth-child(2){top:40px;}
+        .body > .button > .dot:nth-child(3){top:50px;}
+        .leg{position:relative;background:#ffffff;width:200px;height:200px;border-radius:50%;}
+
+    </style>
+</head>
+<body>
+    <div class="snowman">
+        <div class="head">
+            <div class="cap">
+                <div class="top"></div>
+                <div class="bot"></div>
+            </div>
+            <div class="face">
+                <div class="eye">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="mouse"></div>
+            </div>
+        </div>
+        <div class="body">
+          <div class="arm">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <div class="button">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="leg"></div>
+      </div>
+</body>
+</html>

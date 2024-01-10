@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i++ & ++i</title>
+</head>
+<body>
+    <div id=container"></div>
+    <script>
+        const container = document.querySelector('#container');
+        let i = 0;
+        document.write('i = 0<br/>');
+        while(i < 10){
+            document.write(i);
+            document.write('<br/>');
+            i++;
+        }
+        
+        document.write('<br/><br/>');
+        let j = 0;
+        document.write('j = 0<br/>');
+        while(j < 10){
+            ++j;
+            document.write(j);
+            document.write('<br/>');
+        }
+
+
+        document.write('<br/><br/>');
+        for(let k = 0; k < 10; ++k){
+            document.write(k);
+            document.write('<br/>');
+        }
+
+
+        document.write('<br/><br/>');
+        for(let l = 0; l < 10; l++){
+            document.write(l);
+            document.write('<br/>');
+        }
+
+    </script>
+    
+</body>
+</html>

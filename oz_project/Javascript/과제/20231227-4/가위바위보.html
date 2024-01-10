@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+</head>
+<body>
+    <H2>가위바위보 게임</H2>
+    <p>가위, 바위, 보 중 하나를 입력하세요:</p>
+    <input type="text" id="input" name="input">
+    <button id="btn">결과 확인</button>
+    <p id="result"></p>
+
+    <script>
+        let input = document.querySelector("#input");
+        let btn = document.querySelector("#btn");
+        let result = document.querySelector("#result");
+        let result_text = "";
+        let rand_imo = "";
+        let input_imo = "";
+
+        let rand = ["가위", "바위", "보"];
+
+        btn.addEventListener("click", function(){
+            let input_val = input.value;
+
+
+            rand_sel = Math.floor(Math.random() * 3);
+                if(rand[rand_sel] == "가위"){
+                    rand_imo = "&#x270C;";
+                    if(input_val == "바위"){
+                        input_imo = "&#x270A;";
+                        result_text = "이겼습니다.";
+                    } else if(input_val == "보"){
+                        input_imo = "&#x270B;";
+                        result_text = "졌습니다.";
+                    } else if(input_val == "가위"){
+                        input_imo = "&#x270C;";
+                        result_text = "비겼습니다.";
+                    } 
+                } else if(rand[rand_sel] == "바위"){
+                    rand_imo = "&#x270A;";
+                    if(input_val == "보"){
+                        input_imo = "&#x270B;";
+                        result_text = "이겼습니다.";
+                    } else if(input_val == "가위"){
+                        input_imo = "&#x270C;";
+                        result_text = "졌습니다.";
+                    } else if(input_val == "바위"){
+                        input_imo = "&#x270A;";
+                        result_text = "비겼습니다.";
+                    }
+                } else if(rand[rand_sel] == "보"){
+                    rand_imo = "&#x270B;"
+                    if(input_val == "가위"){
+                        input_imo = "&#x270C;";
+                        result_text = "이겼습니다.";
+                    } else if(input_val == "바위"){
+                        input_imo = "&#x270A;";
+                        result_text = "졌습니다.";
+                    } else if(input_val == "보"){
+                        input_imo = "&#x270B;";
+                        result_text = "비겼습니다.";
+                    }
+                }
+            
+            result.innerHTML = `당신의 선택 :  ${input_imo}(${input_val}) / 컴퓨터의 선택 : ${rand_imo}(${rand[rand_sel]}) / 결과 : ${result_text} `;
+        })
+
+        
+    </script>
+    
+</body>
+</html>

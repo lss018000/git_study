@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>구글 메인페이지</title>
+  <style>
+    .container{width:100%;height:100vh;overflow:hidden;background:#202124;position:relative;}
+    .top_area{height:50px;width:calc(100% - 40px);padding:20px;}
+    .top_area > .left{width:50%;float:left;}
+    .top_area > .right{width:50%;float:right;text-align:right;}
+    .top_area > div > a{height:50px;line-height:50px;text-decoration:none;color:#ffffff;display:inline-block;padding:0 15px;}
+    .top_area > div > a > svg{height:50px;vertical-align:middle;}
+    .top_area > div > a > img{height:50px;vertical-align:middle;border-radius:50%;}
+
+    .search_area{text-align:center;margin-top:100px;}
+    .search_area > img{width:300px;margin-bottom:50px;}
+    .search_area > .search-bar{position:relative;}
+    .search_area > .search-bar > input{width:50%;height:50px;border-radius:25px;padding:0 60px;background-color:rgba(0,0,0,0);border:1px solid #3c4043;}
+    .search_area > .search-bar > svg{width:30px;height:30px;padding:10px;position : absolute;left:21%;}
+
+    .footer_area{height:150px;width:100%;position:absolute;bottom:0;left:0;background:#171717;}
+    .footer_area > div{height:50px;}
+    .footer_area > div > .left{width:50%;float:left;text-align:left;}
+    .footer_area > div > .right{width:50%;float:right;text-align:right;}
+    .footer_area > div > div > a{height:50px;line-height:50px;text-decoration:none;color:#ffffff;display:inline-block;padding:0 15px;}
+    .footer_area > .top{border-bottom:1px solid #3c4043;}
+    .footer_area > .copy{text-align:center;color:#cccccc;}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top_area">
+            <div class="left">
+                <a href="#">Google 정보</a>
+                <a href="#">스토어</a>
+            </div>
+            <div class="right">
+                <a href="#">Gmail</a>
+                <a href="#">이미지</a>
+                <a href="#"><svg class="gb_i" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path><image src="https://ssl.gstatic.com/gb/images/bar/al-icon.png" alt="" height="24" width="24" style="border:none;display:none \9"></image></svg></a>
+                <a href="#"><img src="https://picsum.photos/50/50"></a>
+            </div>
+        </div>
+        <div class="search_area">
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" alt="구글 로고">
+            <div class="search-bar">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            </div>
+        </div>
+        <div class="footer_area">
+            <div class="top">
+                <div class="left"><a href="#">대한민국</a></div>
+            </div>
+            <div class="bot">
+                <div class="left">
+                    <a href="#">광고</a>
+                    <a href="#">비즌니스</a>
+                    <a href="#">검색의 원리</a>
+                </div>
+                <div class="right">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">약관</a>
+                    <a href="#">설정</a>
+                </div>
+            </div>
+            <div class="copy">
+                <p>© Google 2023</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

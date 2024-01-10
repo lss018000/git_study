@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>햄버거 바 만들기</title>
+    <style>
+        header{width:100%;overflow:hidden;}
+        .mobile_menu_btn{display:none;}
+        ul.menu_area{width:100%;display:block;list-style:none;padding:0;margin:0;}
+        ul.menu_area > .menu_single:first-child{background:#000000;}
+        ul.menu_area > .menu_single{width:20%;float:left;background:#cccccc;}
+        ul.menu_area > .menu_single > a{display:inline-block;text-decoration:none;text-align:center;padding:20px 0;width:100%;color:#ffffff;}
+        ul.menu_area > .menu_single:hover{background:#555555;}
+        @media screen and (max-width:550px){
+            .mobile_menu_btn{display:block;font-size:40px;text-align:center;}
+            ul.menu_area{display:none;}
+            ul.menu_area.opened{display:block;}
+            ul.menu_area > .menu_single{width:100%;}
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".mobile_menu_btn").click(function () {
+                if ($(".menu_area").hasClass("opened")) {
+                    $(".menu_area").removeClass("opened");
+                } else {
+                    $(".menu_area").addClass("opened");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="mobile_menu_btn">&#x1f499;Menu&#x1f499;</div>
+        <ul class="menu_area">
+            <li class="menu_single"><a href="#">Home</a></li>
+            <li class="menu_single"><a href="#">Menu1</a></li>
+            <li class="menu_single"><a href="#">Menu2</a></li>
+            <li class="menu_single"><a href="#">Menu3</a></li>
+            <li class="menu_single"><a href="#">Menu4</a></li>
+        </ul>
+    </header>
+    
+</body>
+</html>

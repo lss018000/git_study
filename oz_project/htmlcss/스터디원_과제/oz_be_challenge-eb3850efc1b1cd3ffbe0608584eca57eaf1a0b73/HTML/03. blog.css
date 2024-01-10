@@ -1,0 +1,74 @@
+/* 이미지 가운데 정렬 */
+img {
+    display: block;
+    margin: 20px auto;
+}
+
+/* 전체 선택자 사용 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+/* 모든 요소 가운데 정렬 */
+main {
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* 태그에 CSS 적용하기 */
+h1 {
+    color: #333;
+}
+
+hr {
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+p {
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="button"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* 프로필 스타일링 */
+#introductions, #taste, #play-button, #donation, #copyright {
+    margin-bottom: 20px;
+}
+
+#taste p {
+    font-size: 1.1em;
+}
+
+#play-button input {
+    margin-top: 10px;
+}
+
+#donation {
+    font-weight: bold;
+    color: dodgerblue;
+}

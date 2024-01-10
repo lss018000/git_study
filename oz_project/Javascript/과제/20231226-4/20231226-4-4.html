@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스톱워치!</title>
+</head>
+<body>
+    <div id = "container">
+        <div id = "stopWatch">00:00:00</div>
+        <button id = "startBtn" class = "timerBtn">Start</button>
+        <button id = "stopBtn" class = "timerBtn">Stop</button>
+        <button id = "resetBtn" class = "timerBtn">Reset</button>
+    </div>
+    <script>
+        const stopWatch = document.querySelector("#stopWatch");
+        const startBtn = document.querySelector("#startBtn");
+        const stopBtn = document.querySelector("#stopBtn");
+        const resetBtn = document.querySelector("#resetBtn");
+
+        let startTime = 0;
+        let currentTime = 0;
+        let ingTime = 0;
+
+        let paused = true;
+        let intervalId;
+        let ho = 0;
+        let mi = 0;
+        let se = 0;
+
+        startBtn.addEventListener("click", () => {
+            if(paused){
+                paused = false;
+                startTime = Date.now() - ingTime;
+                intervalId = setInterval(updateTime, 1000);
+            }
+        });
+
+        stopBtn.addEventListener("click", () => {
+            if(!paused){
+                paused = true;
+                ingTime = Date.now() - startTime;
+                clearInterval(intervalId);
+            }
+        });
+
+        resetBtn.addEventListener("click", () => {
+            paused = true;
+            clearInterval(intervalId);
+            startTime = 0;
+            ingTime = 0;
+            currentTime =0;
+
+            ho = 0;
+            mi = 0;
+            se = 0;
+
+            stopWatch.textContent = "00:00:00";
+        });
+
+
+        function updateTime() {
+            ingTime  = Date.now() - startTime;
+            se = Math.floor((ingTime /1000)%60);
+            mi = Math.floor((ingTime /(1000*60))%60);
+            ho = Math.floor((ingTime /(1000*60*60))%60);
+
+            function pad(unit){
+                return (("0") + unit).length > 2 ? unit : "0" + unit
+            }
+            se = pad(se);
+            mi = pad(mi);
+            ho = pad(ho);
+            stopWatch.textContent = `${ho}:${mi}:${se}`;
+        }
+
+    </script>
+</body>
+</html>

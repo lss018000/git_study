@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creatElement & appendChild</title>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <script>
+        const div = document.getElementById("container");
+        const box = document.createElement("div");
+        console.log(box);
+        box.style.color = "blue";
+        box.style.width = "200px";
+        box.style.height = "200px";
+        box.textContent = "Wow!";
+
+        /* 
+        append : 단순 텍스트 추가 가능, 추가된 값 반환 불가
+        appendChild : HTML테그만 추가 가능, 추가된 값 반환 가능
+        */
+        div.appendChild(box);
+    </script>
+</body>
+</html>
