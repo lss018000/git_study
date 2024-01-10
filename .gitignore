@@ -1,5 +1,5 @@
 # 숨김파일
-.DS_Store
+DS_Store
 
 # yaml 파일
 admin_info.yaml
