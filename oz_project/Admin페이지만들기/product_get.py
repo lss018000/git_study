@@ -10,16 +10,16 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 data_types = [
-    ['https://kream.co.kr/search?gender=&shop_category_id=64', '64', ''], #상의
+    ['https://kream.co.kr/search?gender=&shop_category_id=64', '64', '0'], #상의
     ['https://kream.co.kr/search?gender=men&shop_category_id=64', '64', 'men'], #상의 남자
     ['https://kream.co.kr/search?gender=women&shop_category_id=64', '64', 'women'], #상의 남자
-    ['https://kream.co.kr/search?gender=&shop_category_id=65', '65', ''], #하의
+    ['https://kream.co.kr/search?gender=&shop_category_id=65', '65', '0'], #하의
     ['https://kream.co.kr/search?gender=men&shop_category_id=65', '65', 'men'], #하의 남자
     ['https://kream.co.kr/search?gender=women&shop_category_id=65', '65', 'women'], #하의 여자
-    ['https://kream.co.kr/search?gender=&shop_category_id=34', '34', ''], #신발
+    ['https://kream.co.kr/search?gender=&shop_category_id=34', '34', '0'], #신발
     ['https://kream.co.kr/search?gender=men&shop_category_id=34', '34', 'men'], #신발 남자
     ['https://kream.co.kr/search?gender=women&shop_category_id=34', '34', 'women'], #신발 여자
-    ['https://kream.co.kr/search?gender=&shop_category_id=7', '7', ''], #패션잡화
+    ['https://kream.co.kr/search?gender=&shop_category_id=7', '7', '0'], #패션잡화
     ['https://kream.co.kr/search?gender=men&shop_category_id=7', '7', 'men'], #패션잡화 남자
     ['https://kream.co.kr/search?gender=women&shop_category_id=7', '7', 'women'] #패션잡화 여자
 ]
@@ -65,7 +65,7 @@ for data_type in data_types:
             'url': url,
         }
         array_row.append(row) 
-    file_path = './oz_project/Admin페이지만들기/json_data/'+data_name+'.json'
+    file_path = '/Users/devhypnos_i9_64g/Desktop/Git/oz_project/Admin페이지만들기/json_data/'+data_name+'.json'
     with open(file_path, 'w') as f:
         json.dump(array_row, f)
 driver.quit()

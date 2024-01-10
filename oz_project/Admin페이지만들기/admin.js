@@ -141,11 +141,12 @@ $(document).ready(function() {
         row.insertCell(1).innerHTML = item.category;
         row.insertCell(2).innerHTML = item.sex;
         row.insertCell(3).innerHTML = item.brand;
-        row.insertCell(4).innerHTML = item.product+'<a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
+        row.insertCell(4).innerHTML = '<span>'+item.product+'</span><a href="https://kream.co.kr'+item.url+'" target="_blank" class="product_link">상품확인</a>';
         row.insertCell(5).innerHTML = item.price;
         //row.insertCell(6).innerHTML = item.update;
       }
-    }    
+    }
+
 })
 // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
 
@@ -168,9 +169,39 @@ const search_btn = document.getElementById('search');
 const del_btn = document.getElementById('sel_del');
 
 del_btn.addEventListener('click', function(){
-  if(confirm('진짜 삭제할꺼지?')){
+  if(confirm('삭제할까요?')){
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "./json_data/kream_data_total.json", true);
+    xhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        let storage = JSON.parse(this.response);
+        // console.log(storage);
+        for(i in storage){
+          console.log(storage.length);
+        }
+
+      }
+    };
+    xhttp.send();
+
     alert("삭제되었습니다.");
   } else {
     alert("삭제가 취소되었습니다.");
   }
 })
+
+
+const json_file = new File(["data"], "/Users/devhypnos_i9_64g/Desktop/Git/oz_project/Admin페이지만들기/json_data/kream_data_total.json");
+// console.log(json_file);
+const creationDate = new Date(json_file.lastModified);
+let file_y = creationDate.getFullYear(); // 년도
+let file_m = creationDate.getMonth() + 1;  // 월
+let file_d = creationDate.getDate();  // 날짜
+
+const file_date = document.getElementById('update_date');
+
+file_date.textContent = file_y + '/' + file_m + '/' + file_d;
+
+console.log(creationDate); // Fri Jan 20 2023 00:00:00 GMT+0900
+
+
