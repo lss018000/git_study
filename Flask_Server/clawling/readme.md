@@ -5,7 +5,6 @@
     - data_get/cat_insert_db.py : kream 상위 탭 링크를 카테고리로 database 저장
     - data_get/product_insert_db.py : 저장된 카테고리 및 성별 기준으로 kream 사이트의 상품 데이터 크롤링하여 database 저장
 - [x] 크롤링한 데이터 데이터베이스에 저장 **(필수)**
-    - 상동
 - [x] FLASK에 기존에 만든 Bootstrap 적용하기 **(선택 - 챌린지)**
 - [x] FLASK에 스크래핑된 결과를 저장한 데이터베이스 연동하기 **(선택 - 챌린지)**
 - [x] 데이터베이스의 데이터를 Bootstrap 화면에 보여주기 **(선택 - 챌린지)**
