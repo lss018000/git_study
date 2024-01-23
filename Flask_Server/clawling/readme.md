@@ -25,6 +25,3 @@
 
 <img src="https://raw.githubusercontent.com/lss018000/git_study/main/Flask_Server/clawling/img/img1.png">
 
----
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs?username=lss018000)]
-(https://githubcom/lss018000/github-readme-stats)
