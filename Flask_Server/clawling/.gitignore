@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+# *
+
+## 폴더
+__pycache__/
+bin/
+lib/
+
+## 파일
+pyvenv.cfg
