@@ -1,6 +1,9 @@
 from flask import Flask, request, redirect, url_for
 import pymysql
 
+# source bin/activate
+
+
 app = Flask(__name__)
 connection = pymysql.connect(
 	host='localhost',
@@ -56,9 +59,21 @@ def product_list(cat, gen, q, page):
         category_name = data[8]
         brand = data[2]
         gender = data[3]
+        if gender == 'men':
+          gender = '남자';
+        elif gender == 'women':
+          gender = '여자';
+        elif gender == 'kids':
+          gender = '키즈';
         product_name_en = data[4]
         product_name = data[5]
         price = data[6]
+        price_var = "%" in price
+        if price_var:
+          price_len = price.rfind('%') + 1;
+          price = price[price_len:];
+        else:
+          price_len = 'a';
         kream_url = data[7]
         return_val = return_val + f'<tr><td><input type="checkbox" class="del_sel" id="del_sel" name="del_sel" onclick="del_chk_sel({id});" value="{id}"></td><td class="td_cat">{category_name}</td><td>{gender}</td><td>{brand}</td><td><span>{product_name}</span><a href="https://kream.co.kr{kream_url}" target="_blank" class="product_link">상품확인</a></td><td>{price}</td></tr>'
     cursor.close()

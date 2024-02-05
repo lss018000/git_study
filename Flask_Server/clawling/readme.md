@@ -22,6 +22,7 @@
 - crontab을 통한 매일 9:30 데이터 업데이트 기능
 
 ---
+
 #### 처음 접속 페이지 캡쳐
 <img src="https://raw.githubusercontent.com/lss018000/git_study/main/Flask_Server/clawling/img/img0.png">
 

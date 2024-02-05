@@ -5,6 +5,7 @@
 __pycache__/
 bin/
 lib/
+templates/
 
 ## 파일
 pyvenv.cfg
